@@ -1,2 +1,0 @@
-# Danmaku-Practice
-Hello
