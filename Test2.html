@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+    <link rel="stylesheet" href="Test2.css" />
+</head>
+<body>
+    <div class="container">
+        <header><h1>HTTP</h1></header>
+        <main>
+
+            <p id="HTTP">
+                <strong>HTTP（超文本传输协议）</strong>是一种用于分布式、协作式、超媒体信息系统的应用层协议。
+                HTTP是全球信息网（即我们熟知的互联网）数据通信的基础。它提供了一种让网页（超文本文档）能够互相链接和访问的标准方法。
+                简而言之，HTTP定义了客户端（用户的浏览器）和服务器之间请求和响应数据的格式。
+            </p>
+
+            <p>
+                HTTP工作于客户端-服务器架构模式。在这个模式中，用户的浏览器（客户端）通过URL向服务器发起请求，
+                请求特定的资源（如网页、图片、视频等）。服务器接收到这个请求后，处理请求并返回相应的响应给客户端。
+                这个响应可以是请求的资源，也可以是错误消息，表明请求无法完成。
+            </p>
+
+            <br>
+
+            <p id="Hypertext">
+                <strong>超文本（Hypertext）</strong>是一种基于计算机的信息系统，允许用户通过非线性的方式浏览和检索信息。
+                它通过链接（链接通常以蓝色文字显示，也可以是其他形式）将文本、图像、音频、视频等多媒体元素连接起来，
+                形成一个网络。超文本的核心概念是文档之间的相互关联，用户可以通过点击链接或其他交互方式在不同文档之间跳转。
+                这种非线性的组织方式使得用户可以根据自己的兴趣和需求自由地浏览信息，而不必严格按照线性结构阅读。
+                超文本的概念最早由蒂姆·伯纳斯-李（Tim Berners-Lee）在20世纪80年代提出，并在互联网的发展中得到广泛应用，
+                成为了万维网（World Wide Web）的基础之一。
+            </p>
+
+            <p>
+                <strong id="Transmission Protocol">传输协议（Transmission Protocol）</strong>是计算机网络中的一种规则或约定，用于在网络上的不同节点之间传输数据。
+                传输协议定义了数据传输的格式、顺序、错误检测和纠正机制，以及数据传输时的控制和管理方式。
+                它确保了数据能够可靠地从一个节点传输到另一个节点，并且在传输过程中保持数据的完整性和准确性。
+            </p>
+
+            <br>
+            <p id="metadata">
+                除了传输文档内容之外，HTTP还传输关于通信双方状态的<strong>元数据(metadata)</strong>。
+                这些元数据通过<strong>请求和响应头部(request and response headers)以及状态码(status codes)</strong>来传递。
+            </p>
+
+            <p>
+                <strong>请求和响应头部：</strong>在HTTP通信中，每个请求和响应都包含头部信息，这些头部信息包含了与通信相关的元数据，
+                例如请求的方法、资源的位置、数据类型、认证信息等。头部信息提供了关于通信双方的重要信息，
+                帮助双方正确处理和理解请求和响应。
+
+                <br><br>
+
+                <strong>状态码：</strong>HTTP使用状态码来表示请求的处理结果。状态码是服务器向客户端提供的一个数字代码，
+                用于指示请求的成功、失败以及失败的原因。常见的状态码包括200（OK，请求成功）、404（Not Found，未找到请求的资源）
+                、500（Internal Server Error，服务器内部错误）等。状态码使得客户端能够根据服务器的响应对请求进行适当的处理。
+            </p>
+
+            <br>
+
+            <p id="HTTP-message"><strong>HTTP消息（HTTP-message）</strong>由四个主要部分组成：</p>
+
+            <ol>
+                <li>起始行（start-line）</li>
+                <li>零个或多个头部字段（header-field）</li>
+                <li>一个空行（CRLF）</li>
+                <li>可选的消息体（message-body）</li>
+            </ol>
+
+            <p class="text-box">
+                HTTP-message = start-line+*( header-field CRLF )+CRLF+[ message-body ]
+            </p>
+
+            <dl>
+                <dt><strong>起始行（start-line）分为请求起始行（request-line）和状态起始行（status-line）</strong>，取决于消息是请求还是响应：</dt>
+                <dd>请求起始行包含请求方法、请求的URI和HTTP协议版本，例如：“GET /index.html HTTP/1.1”</dd>
+                <dd>状态起始行包含HTTP协议版本、状态码和状态短语，例如：“HTTP/1.1 200 OK”</dd>
+            </dl>
+
+            <p>
+                <strong>头部字段：</strong>每个头部字段由一个字段名和一个字段值组成，格式为“字段名:字段值”。
+                通常用于传递关于消息的元数据信息，如内容类型、内容长度、日期等。
+                每个头部字段由一个字段名和一个字段值组成，字段名和字段值之间用冒号分隔，字段值可以是单个值，
+                也可以是多个值，多个值之间用逗号分隔。
+                <br>
+                常见头部有：
+                <br>
+                <strong>Accept: </strong>用于让服务器知道客户端可以处理的内容类型，如HTML、图片、音频等。
+                它帮助服务器决定返回哪种类型的内容。例如，Accept: text/html表示客户端期望接收HTML格式的内容。
+                <br>
+                <strong>User-agent: </strong>提供了客户端（通常是浏览器）的信息，包括浏览器类型、版本和操作系统。
+                服务器可以使用这些信息来决定发送哪个版本的内容，以便最佳匹配用户的浏览器功能或限制。
+                例如，移动浏览器可能会接收到专为移动设备优化的网页版本。
+            </p>
+
+            <p>
+                <strong>消息体（message-body）</strong>，用于包含实际的数据内容, 对于请求消息来说通常是客户端发送给服务器的数据，
+                对于响应消息来说通常是服务器发送给客户端的数据。消息体的内容和格式取决于具体的应用场景和协议版本。
+            </p>
+
+            <br>
+
+            <p id="request-line">根据RFC 7230的规范，HTTP请求中的<strong>请求行（request-line）</strong>格式如下：</p>
+
+            <p class="text-box">
+                method+SP+request-target+SP+HTTP-version+CRLF
+                <br>
+                (例：GET /index.html HTTP/1.1)
+            </p>
+
+            <p>
+                <strong>method</strong>表示HTTP请求的方法，指定了客户端希望服务器执行的操作，常见方法包括：
+                <br>GET：请求获取指定资源（检索目标资源的副本）
+                <br>POST：向指定资源提交数据进行处理请求（将有效负载数据提交到目标资源）
+                <br>PUT：请求服务器存储一个资源，并用请求的数据替代指定的资源
+                <br>DELETE：请求服务器删除指定资源
+                <br>HEAD：类似于GET请求，但服务器在响应中只返回首部，不返回实体的主体部分
+                <br>OPTIONS：请求查询服务器支持的HTTP方法
+                <br>TRACE：用于测试服务器的连接，客户端发出TRACE请求，服务器会原封不动地返回这个请求，用于诊断和调试
+            </p>
+
+            <p><strong>SP</strong> 表示空格（Space），用于分隔method、request-target和HTTP-version这三个部分。</p>
+
+            <p>
+                <strong>request-target</strong> 表示请求目标，它与URI（统一资源标识符）中的路径（path）和查询（query）组件相关联。
+                <br>&nbsp&nbsp&nbsp&nbsp路径（path）：表示资源在服务器上的路径。可以是一个绝对路径（例：/index.html）或一个完整的URL（例：http://example.com/index.html）。
+                <br>&nbsp&nbsp&nbsp&nbsp查询（query）：表示对资源的额外参数或信息。查询通常由一系列参数和值组成，以问号?开头，参数和值之间用等号=分隔，不同参数之间用&连接。
+                <br>例：?name=welcome&action=view表示带有参数name和action的查询，其中name的值是welcome，action的值是view。
+            </p>
+
+            <p><strong>HTTP-version</strong> 表示HTTP协议的版本号，通常为HTTP/1.0或HTTP/1.1。它指示了客户端使用的HTTP协议版本。</p>
+            <p><strong>CRLF</strong> 表示回车换行（Carriage Return, Line Feed），用于表示请求行的结束。</p>
+
+            <br>
+
+            <p id="status-line">HTTP响应中的<strong>状态行（status-line）</strong>格式如下：</p>
+
+            <p class="text-box">status-line = HTTP-version+SP+status-code+SP+reason-phrase+CRLF</p>
+
+            <p><strong>HTTP-version：</strong>表示HTTP协议的版本号，与请求中的HTTP版本号相同，通常为HTTP/1.0或HTTP/1.1。</p>
+            <p><strong>SP：</strong>表示空格（Space），用于分隔HTTP-version、status-code和reason-phrase这三个部分。</p>
+            <p>
+                <strong>status-code：</strong>是一个三位数的状态码，用于表示服务器对请求的处理结果。状态码分为五个类别，每个类别代表一种不同的状态，常见的状态码包括：
+                <br>1xx：信息性状态码，表示请求已被接收，继续处理。(e.g., 100 Continue).
+                <br>2xx：成功状态码，表示请求已成功被服务器接收、理解、并接受。(e.g., 200 OK)
+                <br>3xx：重定向状态码，表示需要客户端采取进一步的操作才能完成请求。(e.g., 301 Moved Permanently)
+                <br>4xx：客户端错误状态码，表示客户端发送的请求有错误。(e.g., 403 Forbidden)
+                <br>5xx：服务器错误状态码，表示服务器在处理请求时发生了错误。(e.g., 500 Internal Server Error)
+            </p>
+            <p>
+                <strong>reason-phrase：</strong>是状态码的文本描述，用于解释状态码的含义。它提供了对状态码的简要描述，帮助客户端理解服务器返回的响应结果。
+                例如，对于状态码200（OK），其原因短语可能是“OK”，表示请求成功；对于状态码404（Not Found），其原因短语可能是“Not Found”，表示请求的资源未找到。
+            </p>
+
+            <br>
+
+            <p id="Content-Type">
+                <strong>Content-Type：</strong>Content-Type 是 HTTP 协议中的一个头部字段，用于指示响应或请求中实体主体的媒体类型。
+                它告诉客户端如何解析响应体或请求体的内容。Content-Type 的值通常由一个主类型和一个子类型组成，之间用斜杠分隔。有时还可以包含一些参数，例如字符编码等。例如：
+                <br>text/html：HTML 文档
+                <br>application/json：JSON 数据
+                <br>image/png：PNG 图像
+                <br>audio/mp3：MP3 音频
+                <br>multipart/form-data：表单数据
+            </p>
+
+            <p>
+                如果将响应中的Content-Type从text/html修改为text/plain会导致浏览器将响应体作为纯文本处理，而不会将其解析为HTML文档并渲染为网页。
+                这可能会影响到页面的展示效果，特别是如果响应体中包含了HTML标签和样式时，将无法以网页的形式正确呈现给用户。
+            </p>
+
+            <br>
+
+            <p><strong>简单的HTTP请求和响应的示例：</strong></p>
+            <p><strong>请求：</strong></p>
+            <p class="text-box-noAlign">
+                GET /index.html HTTP/1.1
+                <br>Host: www.bristol.ac.uk
+                <br>Connection: close
+            </p>
+            <p>
+                这个请求由以下几个部分组成：
+                <br>&nbsp&nbsp&nbsp&nbsp 请求行：GET /index.html HTTP/1.1，表示使用GET方法请求位于服务器上的/index.html资源，并使用HTTP/1.1协议。
+                <br>&nbsp&nbsp&nbsp&nbsp 请求头部：Host: www.bristol.ac.uk，指定了请求的目标主机，即请求发送到www.bristol.ac.uk。
+                <br>&nbsp&nbsp&nbsp&nbsp 请求头部：Connection: close，表示请求后立即关闭连接，告知服务器不要保持持久连接。
+            </p>
+            <p><strong>响应：</strong></p>
+            <p class="text-box-noAlign">
+                HTTP/1.1 200 OK
+                <br>Content-Type: text/html; charset=UTF-8
+                <br>Content-Length: 1009
+                <br>
+                <br>&lt!DOCTYPE html&gt
+                <br>&lthtml lang="en"&gt
+                <br>...
+            </p>
+            <p>
+                这个响应由以下几个部分组成：
+                <br>&nbsp&nbsp&nbsp&nbsp状态行：HTTP/1.1 200 OK，表示使用HTTP/1.1协议，状态码为200，状态短语为OK，表示请求成功。
+                <br>&nbsp&nbsp&nbsp&nbsp响应头部：Content-Type: text/html; charset=UTF-8，指定了响应体的类型为HTML文档，并且使用UTF-8字符编码。
+                <br>&nbsp&nbsp&nbsp&nbsp响应头部：Content-Length: 1009，指定了响应体的长度为1009字节。
+                <br>&nbsp&nbsp&nbsp&nbsp响应体：响应体中包含了实际的HTML内容，这里给出了一个简单的HTML文档结构，包含了&lt!DOCTYPE html&gt声明和&lthtml&gt标签等。
+            </p>
+
+            <br>
+
+            <p id="URI">
+                <strong>URI：</strong>
+                <br>URI（统一资源标识符 Uniform Resource Identifier）是用于标识和定位资源的字符串序列。
+                它是一种标准化的命名方式，用于唯一地标识互联网上的资源，如文档、图像、服务、文件等。
+                URI通常由三个部分组成：协议（scheme）、主机（host）和路径（path）。
+                URI可用于定位各种类型的资源，包括网页、API端点、文件等。URI的一个常见例子是URL（统一资源定位符 Uniform Resource Locator），
+                它是URI的子集，用于定位Web上的资源。
+            </p>
+
+            <p>
+                <strong>URI通常由三个部分组成：</strong><div class="yellowBG">协议（scheme）</div>、<div class="greenBG">主机（host）</div>和<div class="cyanBG">路径（path）/查询（query）</div>
+                <br>
+                <div class="centerAlign"><div class="yellowBG">https://</div><div class="greenBG">bristol.ac.uk</div><div class="cyanBG">/engineering/departments</div></div>
+            </p>
+
+            <p>
+                <strong>HTTP URI </strong>是一种用于标识HTTP资源的URI方案。它定义了HTTP资源的标识方式，并指定了用于与资源交互的通信协议。
+                HTTP URI Scheme以"http://"开头，后跟主机名、可选的端口号、路径、查询参数和片段标识符。通过HTTP URI Scheme，
+                可以唯一地标识和定位Web服务器上的资源，例如网页、图像、文件等。HTTP URI Scheme是构成Web中URL的一部分，它使得客户端可以向服务器发送HTTP请求，并获取相应的资源。
+            </p>
+
+            <p>
+                <strong>URL的片段部分（fragment part of a URL）</strong>是URL中#后面的部分，用于指向网页中的特定部分。
+                浏览器不会将片段发送到服务器，而是用它来滚动到页面的指定锚点（如果存在）。
+                例如，在https://example.com/page#section2中，#section2就是片段部分，它告诉浏览器滚动到页面上ID为section2的元素位置。
+            </p>
+
+            <p>
+                <strong>对URL中包含空格的路径进行编码。</strong>URL中的路径如果包含空格或其他特殊字符，需要进行编码。
+                空格通常被编码为%20。其他特殊字符，如#、%、&等，也需要编码。这个过程称为URL编码或百分比编码。
+                例如，路径/my documents/file.pdf编码为/my%20documents/file.pdf。
+            </p>
+
+            <p id="Java and Spring Boot"><strong>使用Java语言和Spring Boot框架来运行真实的Web服务器：</strong></p>
+
+            <p>
+                &nbsp&nbsp&nbsp&nbsppom.xml文件：这个文件告诉Maven这是一个Spring Boot项目，并定义了项目的名称（softwaretools.server01）。
+                <br>&nbsp&nbsp&nbsp&nbspsrc/main/resources：这里有两个文件。application.properties配置了服务器运行在8000端口（默认是8080端口）。还有一个HTML文件，是应用程序可以提供的。
+                <br>&nbsp&nbsp&nbsp&nbspsrc/main/java：这里是源代码。虽然只有两个文件，但整个Spring框架在应用程序运行时都是激活的。Server01Application是主类，目前只包含一些模板代码。
+                <br>&nbsp&nbsp&nbsp&nbspController.java：这个文件很有趣，在应用程序开发中，模型-视图-控制器（MVC）是用来结构化应用程序的多种模式之一，其中控制器负责重要工作，例如响应HTTP请求。
+            </p>
+            <br>
+
+            <p>
+                Spring通过注解（annotations）工作，这些特殊的类名以@符号开头。当服务器启动时，Spring会扫描所有文件的注解并设置代码以处理它们。例如：
+                <br>&nbsp&nbsp&nbsp&nbspsrc@SpringBootApplication告诉Spring这是要运行的主文件。
+                <br>&nbsp&nbsp&nbsp&nbspsrc@RestController告诉Spring这个类包含处理HTTP请求的方法。它之所以这样命名，是因为Spring有使实现REST原则特别简单的库。
+                <br>&nbsp&nbsp&nbsp&nbspsrc@AutoWired用于字段，告诉Spring这个字段的设置是Spring在应用程序启动时的责任。
+                <br>&nbsp&nbsp&nbsp&nbspsrc@GetMapping(PATH)告诉Spring这个方法应该被调用来回应提供路径的HTTP GET请求。
+                方法mainPage展示了响应HTTP请求的基本方式：设置任何你需要的头部，在这个案例中是内容类型，并返回一个ResponseEntity。
+        </main>
+        <asideL>
+            <p><a href="#HTTP">HTTP</a></p>
+            <p><a href="#Hypertext">Hypertext</a></p>
+            <p><a href="#Transmission Protocol">Transmission Protocol</a></p>
+            <p><a href="#metadata">metadata</a></p>
+            <p><a href="#HTTP-message">HTTP-message</a></p>
+            <p><a href="#request-line">request-line</a></p>
+            <p><a href="#status-line">status-line</a></p>
+            <p><a href="#Content-Type">Content-Type</a></p>
+            <p><a href="#URI">URI</a></p>
+            <p><a href="#Java and Spring Boot">Java & Spring Boot</a></p>
+        </asideL>
+        <asideR><p>this is a right aside</p></asideR>
+        <footer><p>this is a footer</p></footer>
+    </div>
+</body>
+</html>
