@@ -1,20 +1,31 @@
 .container {
     display: grid;
     grid-template-areas:
-        "header header header"
+        "header header-link header-link"
         "leftsidebar content rightsidebar"
         "footer footer footer";
     grid-template-columns: 2fr 5fr 2fr;
     grid-template-rows: 80px 7fr 80px;
-
     gap: 10px;
     padding-left: 5%;
     padding-right: 5%;
 }
 
+body {
+    background-color: #DFF2BF;
+}
+
 header {
     grid-area: header;
     border-bottom: 4px solid;
+    margin-right: 0;
+}
+
+header-link {
+    grid-area: header-link;
+    border-bottom: 4px solid;
+    margin-left: -10px;
+    line-height: 6;
 }
 
 main {
@@ -26,7 +37,7 @@ main {
 asideL {
     grid-area: leftsidebar;
     border-right: 2px solid;
-
+    text-align:center;
 }
 
 asideR {
@@ -35,6 +46,10 @@ asideR {
 
 footer {
     grid-area: footer;
+}
+
+.title {
+    text-align:center;
 }
 
 .text-box {
@@ -68,4 +83,31 @@ footer {
 .centerAlign {
     text-align:center;
     margin:5px;
+}
+
+.button {
+    position: fixed;
+    right: 40px;
+    bottom: 20px;
+    width: 120px;
+    height: 40px;
+    background-color: blue;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    color: white;
+    line-height: 2.5;
+}
+
+.link-box {
+    width: 80px;
+    height: 40px;
+    background-color: darkslategrey;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    color: white;
+    line-height: 2.5;
 }

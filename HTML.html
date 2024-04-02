@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+    <link rel="stylesheet" href="Test2.css" />
+</head>
+<body>
+    <div class="container">
+        <header id="title" class="title"><h1>HTML</h1></header>
+        <header-link>
+            <a class="link-box" href="index.html">HTTP</a>
+        </header-link>
+        <main>
+            <p id="HTML"><strong>HTML（HyperText Markup Language）</strong>是一种用于创建和呈现超文本的标记语言。它被用来描述和组织网页的内容和结构，使得文本能够具有交互性和结构化。</p>
+            <br>
+            <p id="tags">
+                HTML的一些关键要素：
+                <br><strong>标签（Tags）：</strong>HTML文档中的基本单位。标签用于指示文档中的不同部分和组件，并告诉浏览器如何处理这些部分。例如，
+                <br><strong>&ltp&gt</strong>标签表示段落，
+                <br><strong>&lta&gt</strong>标签表示超链接，
+                <br><strong>&ltimg&gt</strong>标签表示图像等。
+                <br>标签的嵌套和文本：HTML标签可以嵌套在其他标签内部，形成层次结构，用于组织文档的结构。同时，标签内部可以包含文本内容，使得文本和标记一起组成文档的内容。例如：
+            </p>
+            <p class="text-box-noAlign">
+                &ltdiv&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&ltp&gtThis is a paragraph with &ltem&gtemphasized&lt/em&gt text.
+                &lt/p&gt
+                <br>&lt/div&gt
+            </p>
+            <p id="Attributes"><strong>标签属性（Attributes）：</strong>HTML标签可以具有属性，用于提供附加信息或控制标签的行为和外观。属性通常以键值对的形式出现，放在标签的开始标记中。例如：</p>
+            <p class="text-box-noAlign">&lta href="https://www.example.com"&gtVisit our website&lt/a&gt</p>
+            <p>HTML中的一些重要标签包括：</p>
+            <p>
+                <strong>&lthtml&gt：</strong>HTML文档的根元素，所有其他元素都嵌套在&lthtml&gt标签内部。
+                <br><strong>&lthead&gt：</strong>包含了文档的元信息和头部元素，用于描述文档的一些属性和配置，例如文档的标题、字符编码、样式表链接等。&lthead&gt标签中常见的子标签包括：
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&lttitle&gt：定义文档的标题，显示在浏览器的标题栏或标签页上。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&ltmeta&gt：定义文档的元数据，如字符编码、关键字、描述等。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&ltlink&gt：用于引入外部资源，如样式表、图标等。
+                <br><strong>&ltbody&gt：</strong>包含了文档的主要内容，是可见部分的主要容器。在&ltbody&gt标签内部放置的内容会在浏览器中显示出来，包括文本、图像、链接等。通常，网页的主要内容都放在&ltbody&gt标签内。
+            </p>
+            <p>
+                在HTML文档中，&lthead&gt和&ltbody&gt是两个重要的部分，它们分别包含了文档的元信息和主要内容。&lthead&gt用于描述文档的一些属性和配置，而&ltbody&gt用于呈现文档的主要内容。
+                因此，大多数的文档组件（例如段落、标题、图像、链接等）应该放置在&ltbody&gt标签内，而&lthead&gt主要用于配置和描述文档的属性。
+            </p>
+            <p>HTML文档例子：</p>
+            <p class="text-box-noAlign">
+                &lt!DOCTYPE html&gt
+                <br>&lthtml lang="en"&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&lthead&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&ltmeta charset="utf-8" /&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&lttitle&gtA web page&lt/title&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&lt/head&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&ltbody&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&lth1&gtAn example web-page&lt/h1&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&ltp&gtA paragraph of text here, perhaps with &lta href='./another_page/'&gta link&lt/a&gt&lt/p&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&lt/body&gt
+                <br>&lt/html&gt
+            </p>
+            <br>
+            <p id="ETag"><strong>常用标签（tags）：</strong></p>
+            <p>
+                结构标签：
+                <br>&lthtml&gt：定义 HTML 文档的根元素。
+                <br>&lthead&gt：包含文档的元信息，如标题、字符编码等。
+                <br>&lttitle&gt：定义文档的标题，显示在浏览器的标题栏或标签页上。
+                <br>&ltbody&gt：包含文档的主要内容，是可见部分的主要容器。
+                <br>&ltheader&gt：定义文档的页眉，通常包含网站的标题、标志和导航链接。
+                <br>&ltfooter&gt：定义文档的页脚，通常包含版权信息、联系方式等。
+                <br>&ltmain&gt：定义文档的主要内容区域。
+                <br>&ltnav&gt：定义导航链接的容器。
+                <br>&ltarticle&gt：定义独立的、可独立分配的内容，如新闻文章、博客帖子等。
+                <br>&ltsection&gt：定义文档的一个区段或部分。
+            </p>
+            <p>
+                文本标签：
+                <br>&ltp&gt：定义段落。
+                <br>&lth1&gt、&lth2&gt、&lth3&gt、&lth4&gt、&lth5&gt、&lth6&gt：定义标题，按重要性依次递减。
+                <br>&ltspan&gt：定义文本的行内容器，用于设置文本的样式。
+                <br>&ltstrong&gt、&ltem&gt：分别定义强调和重点文本。
+                <br>&lta&gt：定义超链接。
+                <br>&ltbr&gt：定义换行。
+            </p>
+            <p>
+                列表标签：
+                <br>&ltul&gt：定义无序列表。
+                <br>&ltol&gt：定义有序列表。
+                <br>&ltli&gt：定义列表项。
+            </p>
+            <p>
+                图像、多媒体标签：
+                <br>&ltimg&gt：定义图像。
+                <br>&ltvideo&gt：定义视频。
+                <br>&ltaudio&gt：定义音频。
+            </p>
+            <p>
+                表格标签：
+                <br>&lttable&gt：定义表格。
+                <br>&lttr&gt：定义表格行。
+                <br>&lttd&gt：定义表格数据单元格。
+            </p>
+            <br>
+            <p id="EAttribute"><strong>常见的属性（attributes）：</strong></p>
+            <p>
+                <br>id：为元素指定唯一的标识符，用于在 CSS 和 JavaScript 中引用该元素。
+                <br>class：为元素指定一个或多个类名，用于定义元素的样式或者在 JavaScript 中选择该元素。
+                <br>src：指定嵌入的资源的 URL，如图像、音频、视频等。
+                <br>href：指定链接的目标 URL，用于创建超链接。
+                <br>alt：指定图像的替代文本，用于图像加载失败时显示的文本或者屏幕阅读器的内容。
+                <br>title：为元素提供额外的描述性信息，通常在用户将鼠标悬停在元素上时显示为工具提示。
+                <br>style：为元素指定内联样式，用于直接定义元素的样式。
+                <br>width、height：指定图像、表格等元素的宽度和高度。
+                <br>type：用于指定输入元素的类型，如 &ltinput type="text"&gt、&ltinput type="checkbox"&gt 等。
+                <br>placeholder：指定输入字段的占位符文本，用于提供对用户所需输入的提示。
+                <br>name：为表单元素指定名称，用于在提交表单时将值与表单控件关联起来。
+                <br>value：为表单元素指定初始值。
+                <br>checked：用于指定复选框或单选按钮的默认选中状态。
+                <br>disabled：禁用元素，使其不可编辑或不可交互。
+            </p>
+        </main>
+        <asideL>
+            <p><a href="#HTML">HTML</a></p>
+            <p><a href="#tags">Tags</a></p>
+            <p><a href="#Attributes">Attributes</a></p>
+            <p><a href="#ETag">Tag Examples</a></p>
+            <p><a href="#EAttribute">Atribute Examples</a></p>
+        </asideL>
+        <asideR><p></p></asideR>
+        <footer><p></p></footer>
+        <a href="#title" class="button">Go to the top</a>
+    </div>
+</body>
+</html>
