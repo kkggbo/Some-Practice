@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS</title>
+    <link rel="stylesheet" href="Test2.css" />
+</head>
+<body>
+    <div class="container">
+        <header id="title" class="title"><h1>CSS</h1></header>
+        <header-link>
+            <a class="link-box" href="index.html">HTTP</a>
+            <a class="link-box" href="HTML.html">HTML</a>
+        </header-link>
+        <main>
+            <p id="CSS"><strong>CSS: 层叠样式表（Cascading Style Sheets）</strong>是一种用于控制网页样式和布局的标记语言。通过CSS，可以为HTML和XML等标记语言中的元素定义样式，包括字体、颜色、大小、间距、背景等，从而实现网页的美化和定制。</p>
+            <br>
+            <p id="Composition"><strong>CSS规则的语法结构如下：</strong></p>
+            <p class="text-box-noAlign">
+                selector {
+                <br>
+                &nbsp&nbsp&nbsp&nbspproperty: value;
+                <br>
+                }
+            </p>
+            <p>
+                <strong>选择器（Selector）：</strong>选择器用于指定哪些HTML元素应用该样式规则。可以使用标签名、类名、ID等标识符来选择元素。例如，div表示选择所有&ltdiv&gt
+                元素，.class表示选择具有指定类名的元素，#id表示选择具有指定ID的元素。
+                <br><br>若要同时选择多个标签，可使用逗号分隔。这种选择器可以同时选择多种不同类型的元素，并将同样的样式应用于它们。
+                <br><br>CSS样式规则p#uniquebox选择器用于选择具有ID属性值为uniquebox的段落元素（&ltp&gt），即只选定&ltp id="uniquebox"&gt 中的文本。对于具有指定类名的元素，可以使用p.uniquebox选择器
+                <br><br>选择器也允许根据元素的属性值来选择元素，例如p[name=tim]，表示选择所有具有name属性且属性值为'tim'的段落元素，div[border=none]表示选择所有具有border属性且属性值为'none'的div元素。
+                <br><br>选择器中，p[class='important']与.p.important是等价的，均表示选择所有具有class属性且属性值为'important'的段落元素。
+                <br><br>还一种特殊的属性选择器，即部分匹配属性选择器。例如，img[title~='flower']表示选择所有具有title属性且属性值包含字符串'flower'的图片元素。这种选择器允许根据属性值的部分内容来选择元素，非常灵活。
+            </p>
+            <p>
+                <strong>属性（Property）：</strong>属性是指要设置的样式属性，用于控制元素的外观和布局。可以设置的属性包括字体、颜色、边框、背景、大小等。
+                例如，color属性用于设置文本颜色，background-color属性用于设置背景颜色，font-size属性用于设置字体大小。
+            </p>
+            <p>
+                <strong>值（Value）：</strong>值是属性的具体设置值，用于指定属性的样式效果。不同的属性可以接受不同类型的值，例如颜色值可以是具体的颜色名称、十六进制值或RGB值，大小值可以是像素值、百分比值或其他长度单位。
+            </p>
+            <br>
+            <p id="Implementation"><strong>CSS的实现（Implementation）</strong></p>
+            <p>
+                首先，CSS规则应该被放置在一个样式表文档中，例如名为mystyle.css的文件中。在这个样式表中，可以定义各种样式规则，包括元素的外观、布局和动画等。
+                <br>
+                <br>
+                然后，在HTML文档中，可以通过在&lthead&gt标签内使用&ltlink&gt标签将样式表与HTML文档关联起来。具体而言，可以使用rel="stylesheet"属性来指定样式表的关系类型为样式表，然后使用href属性指定样式表文件的路径。例如：
+            </p>
+            <p class="text-box-noAlign">
+                &lthtml&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&lthead&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&ltlink rel="stylesheet" href="mystyle.css"/&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&lt/head&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&ltbody&gt
+                <br>&nbsp&nbsp&nbsp&nbsp...
+            </p>
+            <p>或者，CSS也可以直接放在HTML文件中，使用&ltstyle&gt标签来定义样式。这种方法通常适用于简单的样式或者一次性的样式定义，但不太适合大型项目或者需要复用的样式。</p>
+            <br>
+            <p><strong>元素之间的位置关系:</strong></p>
+            <p class="text-box-noAlign">
+                &ltdiv class="container"&gt
+                <br>&nbsp&nbsp&ltp&gtdirect child&lt/p&gt
+                <br>&nbsp&nbsp&ltdiv&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&ltp&gtdescendant&lt/p&gt
+                <br>&nbsp&nbsp&lt/div&gt
+                <br>&lt/div&gt
+                <br>&ltp&gtpara one&lt/p&gt
+                <br>&ltp&gtpara two&lt/p&gt
+            </p>
+            <p>
+                在HTML文档中，元素之间存在着不同的位置关系，包括:
+                <br><strong>&nbsp&nbsp&nbsp&nbsp直接子元素（child）:</strong>指的是一个元素直接包含在另一个元素内部。例如，在给定的HTML结构中，&ltp&gtdirect child&lt/p&gt就是直接包含在&ltdiv class="container"&gt内部的子元素。
+                <br><strong>&nbsp&nbsp&nbsp&nbsp后代元素（descendant）:</strong>指的是一个元素嵌套在另一个元素内部的任意层级。例如，在给定的HTML结构中，&ltp&gtdescendant&lt/p&gt就是嵌套在&ltdiv class="container"&gt内部的后代元素。
+                <br><strong>&nbsp&nbsp&nbsp&nbsp前置元素（preceding）:</strong>指的是在同一层级中，在指定元素之前出现的元素。例如，在给定的HTML结构中，&ltp&gtpara one&lt/p&gt就是位于&ltp&gtpara two&lt/p&gt元素之前的前置元素。
+                <br><strong>&nbsp&nbsp&nbsp&nbsp后续元素（following）:</strong>指的是在同一层级中，在指定元素之后立即出现的元素。例如，在给定的HTML结构中，&ltp&gtpara two&lt/p&gt就是位于&ltp&gtpara one&lt/p&gt元素之后的后续元素。
+            <p>
+                <br>
+            <p id="Selectors: Positional"><strong>位置选择器（Selectors: Positional）：</strong></p>
+            <p><strong>this (空格) that：</strong>选择所有的that元素，其是this元素的后代元素。这意味着选择所有嵌套在this元素内部的that元素，不管它们的层级关系如何。</p>
+            <p><strong>this > that：</strong>选择所有的that元素，其是this元素的直接子元素。这意味着选择所有直接包含在this元素内部的that元素，而不考虑它们的孙子元素或更深层次的后代元素。</p>
+            <p><strong>this ~ that：</strong>选择所有在this之后的同级that元素。如果this和that有共同的父元素，并且that在this之后，那么that就会被选择。</p>
+            <p><strong>this + that：</strong>选择紧接在this元素之后的那个that元素。如果that是this的下一个同级元素，那么that就会被选择。</p>
+            <br>
+            <p id="Color Value">
+                <strong>CSS中的颜色值（Color Value）:</strong>
+                <br>CSS中的颜色值可以用好几种方式来设置:
+            </p>
+            <p>&nbsp&nbsp&nbsp&nbsp关键字：像red和blue这样的单词，CSS已经定义好了很多颜色的名字。你只需要写这个颜色的英文名字，就可以使用这个颜色了。</p>
+            <p>&nbsp&nbsp&nbsp&nbsp十六进制格式：这个方法用#加上六个数字或字母来定义颜色。格式是#rrggbb，其中rr（红色）、gg（绿色）、bb（蓝色）可以是从00到FF的任何值。例如，#FF0000就是红色。</p>
+            <p>&nbsp&nbsp&nbsp&nbsprgba函数：这个方法允许你定义红色、绿色、蓝色的亮度，并且加上一个透明度值。透明度用a表示，从0（完全透明）到1（完全不透明）。格式是rgba(r, g, b, a)，其中r、g、b的值是从0到255，a的值是从0到1。</p>
+            <br>
+            <p id="Layout">
+                <strong>布局（Layout）：</strong>
+                <br>在网页布局中，每个元素都可以被看作是一个“盒子”，这个“盒子”由几个不同的层次组成，理解这些层次对于处理元素周围的空间（或元素之间的空间）非常重要。
+            </p>
+            <p><strong>内容（Content）：</strong>这是元素本身的实际材料，比如&ltp&gt标签中的文本空间，或者&ltimg&gt中的图片空间。</p>
+            <p><strong>内边距（Padding）：</strong>这是内容和边框之间的空间。增加内边距会使得元素的可视部分变大，但不会影响到其他元素（它们只会被推开）。</p>
+            <p><strong>边框（Border）：</strong>这是围绕元素的一条线，可以是可见的或不可见的，用来标记元素的界限。边框有厚度，可以改变元素的总体尺寸。</p>
+            <p><strong>外边距（Margin）：</strong>这是边框外部必须保持清晰的空间，其他元素不能侵入这个空间。外边距可以用来将元素与其它元素分隔开。</p>
+            <p>
+                在CSS中，你可以单独设置元素的每一边的外边距（margin）和内边距（padding），或者你可以用一种简写的形式同时设置它们。
+                当你分别设置每一边时，你会使用像margin-top、margin-right、margin-bottom、margin-left这样的属性。
+                而简写形式则允许你在一个属性中设置所有四边，按照顺时针方向：上、右、下、左。
+                <br>&nbsp&nbsp&nbsp&nbsp简写形式：margin: 10px 20px 10px 5px;
+            </p>
+            <br>
+            <p id="Unit"><strong>单位（Unit）:</strong><br>CSS中的单位分为“绝对单位”和“相对单位”，它们用于在网页设计中指定尺寸、布局和其他样式属性。</p>
+            <p>
+                <strong>绝对单位</strong>提供了一个固定的尺寸，不依赖于任何其他因素。这些单位包括：
+                <br>&nbsp&nbsp&nbsp&nbsppx（像素）：是基于屏幕显示的最基本的单位，虽然它是相对于显示器分辨率而言的，但在网页设计中被视为一个“虚拟的固定单位”。通常1px被定义为1/96英寸。
+                <br>&nbsp&nbsp&nbsp&nbsppt（点）：印刷行业的标准单位，1点等于1/72英寸。
+                <br>&nbsp&nbsp&nbsp&nbspcm（厘米）：长度单位，1cm等于10毫米。
+                <br>&nbsp&nbsp&nbsp&nbspin（英寸）：长度单位，1英寸等于2.54厘米。
+            </p>
+            <p>
+                <strong>相对单位</strong>的尺寸是相对于另一个值的，比如视口的尺寸或父元素的尺寸。这些单位包括：
+                <br>&nbsp&nbsp&nbsp&nbspvh（视口高度的百分比）：1vh等于视口高度的1%。
+                <br>&nbsp&nbsp&nbsp&nbspvw（视口宽度的百分比）：1vw等于视口宽度的1%。
+                <br>&nbsp&nbsp&nbsp&nbspem：当用于字体大小时，1em等于父元素的字体大小。当用于设置元素的其他属性（如宽度、高度、内边距、外边距等）时，1em是基于该元素的字体大小，而不是父元素的字体大小。
+                <br>&nbsp&nbsp&nbsp&nbspex：基于字母“x”的高度。这个度量较少使用，因为它依赖于特定字体中的“x”字母的高度。
+                <br>&nbsp&nbsp&nbsp&nbsprem（根em）：相对于根元素（通常是&lthtml&gt）的字体尺寸。在整个文档中，1rem等于根元素的字体大小。
+                <br>&nbsp&nbsp&nbsp&nbsp%（百分比）：相对于父元素的对应尺寸的百分比。
+            </p>
+
+            <strong></strong>
+            <p></p>
+        </main>
+        <asideL>
+            <p><a href="#CSS">CSS</a></p>
+            <p><a href="#Composition">Composition</a></p>
+            <p><a href="#Implementation">Implementation</a></p>
+            <p><a href="#Selectors: Positional">Selectors: Positional</a></p>
+            <p><a href="#Color Value">Color Value</a></p>
+            <p><a href="#Layout">Layout</a></p>
+            <p><a href="#Unit">Unit</a></p>
+        </asideL>
+        <asideR><p></p></asideR>
+        <footer><p></p></footer>
+        <a href="#title" class="button">Go to the top</a>
+    </div>
+</body>
+</html>
