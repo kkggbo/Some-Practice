@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="Test2.css" />
+</head>
+<body>
+    <div class="container">
+        <header id="title" class="title"><h1>JavaScript</h1></header>
+        <header-link>
+            <a class="link-box" href="index.html">HTTP</a>
+            <a class="link-box" href="HTML.html">HTML</a>
+            <a class="link-box" href="CSS.html">CSS</a>
+        </header-link>
+        <main>
+            <p id="js">
+                <strong>JavaScript</strong>是一种高级编程语言。
+                它与HTML和CSS一起构成了构建网站前端（front-end）的三大核心技术。HTML负责页面结构，CSS负责样式和布局，而JavaScript则添加了交互性。
+                所有现代浏览器都内置了JavaScript引擎，这意味着JavaScript代码可以在用户的设备上直接运行，无需任何编译步骤。
+                通过Node.js（一个运行于服务器端的JavaScript运行时环境），JavaScript也可以用于服务器端编程。
+                这意味着开发者可以使用同一种语言来编写前端和后端代码，这种“全栈”开发简化了学习曲线，并允许更快速的开发周期和更高的生产效率。
+            </p>
+            <br>
+            <p id="ap">
+                <strong>属性（Attributes and Properties）：</strong>
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>动态类型语言(Dynamically typed language)：</strong>这意味着在JavaScript中，变量的类型是在运行时决定的，而不是在编写代码时。这增加了语言的灵活性，但也需要开发者在编码时更加注意，以避免类型相关的错误。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>弱类型语言(Weakly typed language)：</strong>在JavaScript中，不同类型的数据可以自由地进行转换，如把字符串转换为数字等。这种类型转换有时会自动发生，这既是一种便利，也可能导致意外的行为。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>基于原型的对象(Prototype-based (objects))：</strong>JavaScript使用原型继承而不是传统的类继承。这意味着对象可以继承自其他对象，开发者可以创建一个对象作为另一个对象的原型，新对象可以继承原型对象的属性和方法。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>多范式语言(Multi-paradigm language)：</strong>JavaScript支持多种编程范式，包括命令式、函数式和事件驱动编程，这使得JavaScript非常灵活，可以适用于多种不同的编程任务。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>应用程序接口（API）：</strong>JavaScript提供了丰富的API，包括操作文本、数组的方法，以及操作HTML文档对象模型（DOM）的方法。这些API使得JavaScript能够创建动态的网页内容和丰富的用户界面。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>不包括输入/输出模块(No I/O module)：</strong>JavaScript设计为运行在浏览器中，因此它不包括传统编程语言中常见的用于网络通信、文件操作或图形界面的I/O模块。尽管如此，通过浏览器提供的API或Node.js，JavaScript可以进行网络请求、访问文件系统等操作。
+            </p>
+            <br>
+            <p><strong>将JavaScript添加到HTML的方法：</strong></p>
+            <p>
+                <strong>1.内部JavaScript（Internal JavaScript）：</strong>将JavaScript代码直接写在HTML文档中的&ltscript&gt标签内。这通常放在文档的&lthead&gt部分或者&ltbody&gt部分的底部。
+                当脚本放在&lthead&gt里时，必须等到脚本执行完毕后，页面才会继续加载。这可能会导致页面加载速度变慢。为了避免阻塞页面渲染，推荐将脚本放在&ltbody&gt标签的底部，这样HTML的其他部分可以在脚本加载和执行时先加载显示。
+            </p>
+            <p class="text-box-noAlign">
+                &lthead&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&ltscript&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp// JavaScript代码
+                <br>&nbsp&nbsp&nbsp&nbsp&ltscript&gt
+                <br>&lthead&gt
+            </p>
+            <p>
+                <strong>2.外部JavaScript（External JavaScript）：</strong>将JavaScript代码写在外部文件中，然后通过&ltscript&gt标签的src属性引入。这样做有助于保持HTML文档的清晰和易于管理，也方便脚本的重用。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspasync（异步脚本）属性：具有async属性的脚本会在被下载时不阻塞HTML的解析。一旦async脚本下载完成，它将尽快执行，这可能会在HTML文档完全解析完成之前。此时，HTML文档的解析会暂停，直到脚本执行完毕。这适合那些不依赖于其他脚本或文档内容的脚本。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdefer（延迟脚本）属性：具有defer属性的脚本也不会在下载时阻塞HTML的解析。但所有defer脚本将在整个HTML文档解析完成后，'DOMContentLoaded'事件触发之前按照它们在HTML中出现的顺序执行。这对于那些需要在HTML完全解析后才能运行的脚本很有用。
+            </p>
+            <p class="text-box-noAlign">
+                &ltscript src="path/to/your-script.js" async&gt&lt/script&gt
+            </p>
+            <p><strong>3.内联JavaScript(Inline JavaScript)：</strong>直接在HTML元素内通过事件属性（'onclick'、'onload'等）添加JavaScript代码。这种方法通常用于简单的交互。</p>
+            <p class="text-box-noAlign">
+                &ltbutton onclick="alert('Hello, World!')"&gtClick Me&lt/button&gt
+            </p>
+            <br>
+            <p>
+                <strong>JS与用户交流实例（communication）：</strong>
+                <br>1. console.log("Hello world!");
+                <br>用途：在浏览器的控制台（Console）输出信息。这是开发者调试程序时常用的方法。
+                <br>示例解释：这行代码会在浏览器控制台显示消息“Hello world!”。
+                <br><br>2. window.console.error(“Error");
+                <br>用途：在浏览器的控制台输出错误信息。与console.log类似，但通常用于指示错误或警告，且在控制台中通常以红色显示。
+                <br>示例解释：这行代码会在浏览器控制台以错误信息的形式显示“Error”。
+                <br><br>3. window.alert("Hello world!");
+                <br>用途：弹出一个警告框，显示指定的消息，直到用户点击“确定”按钮后才会继续执行后续的JavaScript代码。
+                <br>示例解释：这行代码会显示一个包含消息“Hello world!”的警告框。
+                <br><br>4. alert("Hello world!");
+                <br>用途：这是window.alert("Hello world!");的简写形式，因为alert方法实际上是window对象的一个方法，而在浏览器中，window对象是全局作用域，所以可以直接调用其方法。
+                <br>示例解释：效果与直接使用window.alert相同，显示一个警告框。
+                <br><br>5. window.prompt("Are you feeling ok");
+                <br>用途：弹出一个对话框，要求用户输入，可以提供一个字符串作为用户的提示信息，用户可以在输入框中输入文字，并通过点击“确定”提交输入的内容，或点击“取消”来拒绝输入。
+                <br>示例解释：这行代码会显示一个对话框，上面有消息“Are you feeling ok”，并且提供一个输入框给用户输入回答。
+            </p>
+            <br>
+            <p>
+                <strong>JS引擎（JavaScript engines）：</strong>
+                <br>现代浏览器为了呈现网页和执行JavaScript代码，通常启动两个主要的进程：渲染引擎和JavaScript引擎。
+            </p>
+            <p id="JE">
+                渲染引擎（Rendering Engine）:
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp职责：渲染引擎负责解析HTML和CSS，并将解析的内容显示在屏幕上。这包括处理网页的结构、布局、以及样式等信息，最终生成用户可视化看到的网页。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp工作流程：当你访问一个网站时，渲染引擎开始工作，首先解析HTML文档构建出DOM树，然后解析CSS样式信息（包括外部CSS文件和页面内的样式）。解析完成后，渲染引擎将DOM和CSS信息结合，构建渲染树，最后根据渲染树来绘制页面。
+            </p>
+            <p>
+                JavaScript引擎（JavaScript Engine）:
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp职责：JavaScript引擎负责执行页面上的JavaScript代码。这包括处理事件监听、修改DOM、发送网络请求等操作，通过这些操作可以实现页面的动态交互效果。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp解释执行 vs JIT编译：虽然JavaScript通常被认为是一种解释型语言（意味着代码在执行时逐行解释运行），现代浏览器的JavaScript引擎通常使用Just-In-Time (JIT) 编译技术来提高执行效率。JIT编译器会在JavaScript代码执行时将其编译成机器码，这样可以大幅提升运行速度。
+            </p>
+            <p>
+                JIT编译(Just-in-time compiler)技术:
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp原理：JIT编译技术结合了解释器和传统编译器的优点。它不是在代码执行前将全部代码编译成机器码，也不是逐行解释执行，而是将代码编译成字节码（一种介于源码和机器码之间的代码），在执行时根据需要将热点代码（即经常执行的代码）编译成机器码。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp优势：通过JIT编译，可以实时优化代码执行，提高执行效率，尤其是在处理复杂和计算密集的JavaScript应用时表现明显。
+            </p>
+            <br>
+            <p id="DOMT">
+                <strong>DOM树(Document Object Model tree)</strong>
+                <br>Document Object Model (DOM) 树是一个编程接口（API），它将网页文档表示为一个树状结构。每个节点代表文档中的一个部分，如元素、属性和文本。DOM允许程序和脚本动态访问和更新文档的内容、结构和样式。
+            </p>
+            <p>
+                <strong>DOM树的结构</strong>
+                <br>
+                <br>节点（Nodes）：DOM树中的每一个点都是一个节点。最常见的节点类型有：
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp元素(Element)节点：代表HTML文档中的标签，如&ltdiv&gt、&ltp&gt、&lta&gt等。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp文本(Text)节点：包含元素内的文本。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp属性(Attribute)节点：包含元素的属性，如class="example"或href="url"。
+                <br>
+                <br>根节点：在HTML文档中，根节点是&lthtml&gt元素，它是DOM树的顶端起点。
+                <br>父节点（Parent Node）：包含其他节点的节点。
+                <br>子节点（Child Nodes）：被父节点包含的节点。
+                <br>兄弟节点（Sibling Nodes）：拥有相同父节点的节点。
+                <br>
+                <br>DOM的作用
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp页面动态交互：通过使用JavaScript来操作DOM，开发者可以在不刷新页面的情况下，动态地添加、删除、修改页面的内容和结构。这使得网页可以响应用户的操作，如点击按钮添加列表项、提交表单后显示消息等。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp访问和修改：DOM提供了许多方法和属性，使得开发者可以方便地访问和修改DOM树的节点。例如，document.getElementById()可以获取特定ID的元素，element.innerHTML可以修改元素内的HTML内容。
+            </p>
+            <img src="webpic/DOMtree.png">
+            <br><br>
+            <p id="EventListener">
+                <strong>事件监听器（EventListener）：</strong>
+                <br>JavaScript HTML DOM中的事件监听器（EventListener）是一种机制，允许你监听在文档或文档中的元素上发生的特定类型的事件（如点击、键盘按键、鼠标移动等），并定义当这些事件发生时应该执行的动作（即事件处理函数）。
+            </p>
+            <p>
+                你可以使用addEventListener方法来为元素添加事件监听器:
+                <br>element.addEventListener(event, function);
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelement：要添加监听器的DOM元素。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspevent：一个字符串，表示监听的事件类型（如"click"、"keydown"等）。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspfunction：事件发生时调用的函数。
+            </p>
+            <br>
+            <p id="window.onload">
+                <strong>window.onload</strong>
+                <br>onload事件是在HTML文档加载完成后执行JavaScript代码的一种方法,这样做的目的是为了防止JavaScript代码在HTML元素完全加载之前运行，因为那样可能导致无法正确访问或操作那些元素。
+                当使用window.onload时，它会等到整个页面完全加载后才执行代码，这包括所有的HTML、样式表（CSS）、脚本（JavaScript）、以及图片和其他资源。而&ltscript&gt标签中的defer属性不会等待像图片这样的资源加载完成，只需等待HTML解析完成。
+            </p>
+            <p>onload事件可以绑定到window对象，确保在整个页面加载完成后执行某些操作。</p>
+            <p class="text-box-noAlign">
+                &lt!DOCTYPE html&gt
+                <br>&lthtml&gt
+                <br>&lthead&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&lttitle&gtDocument Load Example&lt/title&gt
+                <br>&lt/head&gt
+                <br>&ltbody onload="alert('HTML加载完成！');"&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&lt!-- 页面内容 --&gt
+                <br>&lt/body&gt
+                <br>&lt/html&gt
+            </p>
+            <p>同样，也可以在JavaScript中绑定onload事件，而不是直接在HTML标签上使用。</p>
+            <p class="text-box-noAlign">
+                &lt!DOCTYPE html&gt
+                <br>&lthtml&gt
+                <br>&lthead&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&lttitle&gtDocument Load Example&lt/title&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&ltscript&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspwindow.onload = function() {
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp// 在这里写你的代码
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspalert('HTML加载完成！');
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp};
+                <br>&nbsp&nbsp&nbsp&nbsp&lt/script&gt
+                <br>&lt/head&gt
+                <br>&ltbody&gt
+                <br>&nbsp&nbsp&nbsp&nbsp&lt!-- 页面内容 --&gt
+                <br>&lt/body&gt
+                <br>&lt/html&gt
+            </p>
+            <p>在这两个例子中，当整个HTML页面加载完成时，会弹出一个警告框提示“HTML加载完成！”。这证明了onload事件是在页面加载完毕后触发的。</p>
+            <br>
+            <p id="Sync&Async"><strong>同步脚本与异步脚本 （Synchronous(Parser-Blocking Scripts) and Asynchronous Scripts）：</strong></p>
+            <p>
+                <strong>Synchronous Scripts：</strong>
+                <br>当HTML解析器遇到&ltscript&gt标签时，它会停止解析后续的HTML，转而去加载并执行这个脚本。这个过程会一直持续到脚本执行完毕，之后HTML解析器才会继续解析剩余的文档。这种行为导致了脚本成为了解析器的阻塞点，因此这类脚本被称为"Parser-Blocking Scripts"或"同步脚本"。
+            </p>
+            <img src="webpic/SynScript.png">
+            <p>
+                <strong>Asynchronous Scripts：</strong>
+                通过异步方式加载和执行的JavaScript代码。这意味着这部分代码的加载不会阻塞浏览器的HTML解析器。可通过在标签中添加async属性等方法实现。
+            </p>
+            <img src="webpic/AsynScript.png">
+            <br><br>
+
+
+            <p id="Variable"><strong>变量（Variable）</strong></p>
+            <p>
+                <strong>命名</strong>
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp变量名可以包含字母（a-z，A-Z），数字（0-9），下划线（_）和美元符号（$）。但是，变量名不能以数字开头。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp变量名不能使用JavaScript的保留字。保留字包括语言中已经被使用的词，如for、if、let、var、return、function等。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspJavaScript是区分大小写的语言。这意味着，variableName和VariableName被视为两个不同的变量。
+            </p>
+
+            <p>
+                命名时使用<strong>let或const关键字</strong>意味着变量有块级作用域（Block Scope），即这个变量只在声明它的块或for-loop内部可见。(一个“块”是由一对大括号{}包围的一段代码。)
+            </p>
+            <p>
+                命名时使用<strong>var关键字</strong>意味着变量有函数作用域（Function Scope）或全局作用域，如果它不在任何函数内部被声明的话。(函数作用域是指声明在函数内部的变量只能在该函数内部被访问。这些变量对于函数外部是不可见的。)
+            </p>
+
+            <p id="typeof">
+                <strong>typeof运算符：</strong>
+                <br>typeof运算符在JavaScript中用于确定一个变量或表达式的类型。它是一种一元运算符，返回一个表示操作数类型的字符串。typeof对于调试和确保变量包含预期类型的值非常有用，尤其是在JavaScript这种弱类型语言中。
+                <br>用例：
+            </p>
+            <p class="text-box-noAlign">
+                let x= 10;
+                <br>console.log(typeof x);
+                <br>>number
+            </p>
+            <p id="String">
+                <strong>字符串（String）:</strong>
+            </p>
+            <p>
+                在JavaScript中，字符串是存储文本信息的数据类型，可以使用单引号(')、双引号(")或反引号(```)来声明字符串。这些方式在大多数情况下是等效的。
+                单引号和双引号在JavaScript中的行为基本相同，主要的区别在于如何在字符串中表示引号。如果字符串内部需要包含一个单引号，可以使用双引号来声明字符串，反之亦然。
+                如果要在字符串内部使用和字符串相同的引号类型，那么需要使用反斜线(\)来转义。在下面的例子中，\'用来在双引号字符串内包含一个单引号，不会被解释为字符串的结束。
+            </p>
+            <p class="text-box-noAlign">
+                let example = "I\'m feeling lucky";
+            </p>
+            <p>使用+运算符可以将两个或多个字符串拼接（连接）成一个新的字符串。</p>
+            <p class="text-box-noAlign">
+                let one = "Hello";
+                <br>let two = " world!!!";
+                <br>let concatenation = one + two; // "Hello world!!!"
+            </p>
+            <p><strong>常用字符串方法（String methods）：</strong></p>
+            <img src="webpic/StringMethod.png">
+            <br><br>
+            <p id="Array">
+                <strong>数组（Array）：</strong>
+                <br>数组是一种特殊类型的对象，用于存储多个值。这些值可以是任何类型，包括字符串、数字、布尔值、对象，甚至是其他数组。
+                <br>数组中的元素可以通过索引（Index）访问，索引是从0开始的数字。
+                <br>使用方括号[]来创建一个数组，并且可以在方括号内放入初始元素，元素之间用逗号,分隔。
+            </p>
+            <p class="text-box-noAlign">
+                let variety = ['one', 7896, [0, 1, 2]];
+            </p>
+            <p>variety是一个混合类型的数组，它包含一个字符串'one'，一个数字7896，以及另一个数组[0, 1, 2]作为元素。</p>
+            <br>
+            <p id="Function"><strong>函数（Function）：</strong><br>在JavaScript中，每个函数包含一组按逻辑顺序排列的指令，以便总是实现一个特定的结果。对于JavaScript中的函数：</p>
+            <p>
+                • 每个函数都必须有一个具体且唯一的名称（例如，myFunction）。
+                <br>• 命名函数的规则与命名变量的规则相同。
+                <br>• "function"这个词必须在函数名称之前（例如，function myFunction）。
+                <br>• 每个函数名称后面都跟着一对括号（例如，function myFunction()）。
+                <br>• 每个函数的指令集都包含在大括号{}内（例如，function myFunction() { ... }）。
+                <br>• 函数参数可以包含在括号内，参数的数量可以是0个、1个或多个。
+                <br>• 每个函数通过其名称被调用（例如，myFunction()）。
+                <br>• 当函数通过其名称被调用时，函数内的指令会被执行。
+                <br>• 每个函数可以在脚本中被多次调用。
+                <br>• 一个HTML文档可以包含多个函数。
+                <br>• 所有的函数都包含在&ltscript&gt和&lt/script&gt标签内，或者插入代码的其他地方。
+            </p>
+            <p id="Condition and Loop"><strong>条件与循环（Condition and Loop）</strong></p>
+            <p>条件语句有if语句，if...else语句，if...else if...else语句和switch语句等。</p>
+            <p>
+                循环语句有for循环，while循环，do...while循环，for...in循环和for...of循环等。其中：
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspfor...in循环用于遍历对象的属性。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspfor...of循环用于遍历可迭代对象（如数组、字符串等）的值。
+            </p>
+            <p class="text-box-noAlign">
+                const object = { a: 1, b: 2, c: 3 };
+                for (const property in object) {
+                <br>&nbsp&nbspconsole.log(property + ": " + object[property]);
+                <br>}
+                <br>// 输出：
+                <br>// a: 1
+                <br>// b: 2
+                <br>// c: 3
+
+            </p>
+            <p class="text-box-noAlign">
+                const array = ['a', 'b', 'c'];
+                for (const element of array) {
+                <br>&nbsp&nbspconsole.log(element);
+                <br>}
+                <br>// 输出：
+                <br>// a
+                <br>// b
+                <br>// c
+            </p>
+            <br>
+            <p id="Cookie">
+                <strong>Cookie:</strong>
+                <br>在JavaScript中，Cookie是一种小型文本文件，它被存储在用户的计算机上，并且以name=value对的形式包含数据。例如：visitor=vist123。Cookie主要用于存储用户或访问者的信息，比如用户的偏好设置或登录状态。
+            </p>
+            <p>
+                <strong>写入和读取Cookie:</strong>
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp写入Cookie：使用document.cookie可以写入或存储Cookie到用户的机器上。当你设置document.cookie时，你实际上是在添加一个新的Cookie，或者更新一个已存在的Cookie的值。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp读取Cookie：同样地，通过访问document.cookie，你可以读取存储在用户机器上所有的Cookie，它们以一个长字符串的形式返回，其中每个name=value对之间用分号加空格分隔。
+            </p>
+            <p>
+                <strong>Cookie的参数:</strong>
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspexpires：指定了Cookie的过期时间。如果没有设置，Cookie将在浏览器关闭时过期。你可以设置一个具体的日期和时间，让Cookie在未来的某个时间点过期。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsppath：指定了Cookie有效的路径。默认情况下，Cookie对当前路径及其子路径有效。通过设置路径，你可以限制Cookie只对网站的某部分有效。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdomain：定义了网站的哪部分可以访问Cookie。默认情况下，只有创建Cookie的网页才可以访问该Cookie。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspsecure：标记该Cookie仅通过安全的HTTPS连接发送。
+            </p>
+            <p><strong>创建Cookie的示例函数:</strong></p>
+            <p class="text-box-noAlign">
+                function createCookie(name, value, days) {
+                <br>&nbsp&nbspvar expires = "";
+                <br>&nbsp&nbspif (days) {
+                <br>&nbsp&nbsp&nbsp&nbspvar date = new Date();
+                <br>&nbsp&nbsp&nbsp&nbspdate.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                <br>&nbsp&nbsp&nbsp&nbspexpires = "; expires=" + date.toUTCString();
+                <br>&nbsp&nbsp}
+                <br>&nbsp&nbspdocument.cookie = name + "=" + value + expires + "; path=/";
+                <br>}
+            </p>
+            <p>这个函数允许你创建一个新的Cookie，并可选地设置它的过期时间（以天为单位）。</p>
+            <p>
+                <strong>隐私问题(Privacy concerns):</strong>
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp追踪（Tracking）：通过Cookie或其他追踪技术收集用户的浏览习惯和行为信息。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp用户画像（Profiling）：根据收集的数据对用户进行分类和画像，以便更精准地投放广告或内容。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp数据收集（Data Collection）：网站和广告商收集用户信息，包括个人身份信息和浏览活动。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp第三方与第一方Cookie：第一方Cookie由用户直接访问的网站设置，通常用于记住登录状态和用户偏好。第三方Cookie由广告商和分析服务设置，用于跨网站追踪用户行为。
+            </p>
+            <p>
+                <strong>如何保护(How to protect):</strong>
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp浏览器隐私设置：私人浏览模式，Cookie阻止，第三方Cookie限制。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCookie阻挡器、扩展或浏览器：使用特定的扩展程序或浏览器可以帮助阻止追踪器和Cookie。例如，广告拦截器、隐私保护扩展等。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp使用Tor匿名化：Tor浏览器可以帮助用户匿名浏览互联网，通过其网络隐匿用户的真实IP地址。但需注意，尽管Tor提供了较高级别的匿名性，它并非100%安全。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp使用Tails操作系统：Tails是一个可启动的操作系统，旨在保护用户免受监视和身份泄露。它通过Tor网络和一系列隐私工具来保护用户。
+            </p>
+            <br>
+            <p id="OOP">
+                <strong>向对象编程（OOP）:</strong>
+                <br>JavaScript语言是基于面向对象的基础上设计的。通过面向对象编程（OOP），开发者可以：
+            </p>
+            <p>
+                • 创建自己的对象，并通过使代码更加灵活和可维护来更好地组织代码。
+                <br>• 使用JavaScript提供的预制内置对象（如JSON、Date、Math）。
+                <br>• 我们使用OOP来模拟或更好地描述现实世界的例子。
+                <br>• 对象可以包含数据或方法。通过对象，我们将数据及其行为整合到一个代码块中。
+                <br>• 对象可以相互交互。
+                <br>• 我们可以使用API方法来访问和与对象通信。
+            </p>
+            <br>
+            <p id="JSON">
+                <strong>JSON</strong>
+                <br>JSON（JavaScript Object Notation）是一种轻量级的数据交换格式。它易于人阅读和编写，同时也易于机器解析和生成。
+                JSON是完全独立于语言的文本格式，但它使用了类似于JavaScript对象字面量的约定，这使得JSON在Web开发中非常流行，特别是在进行数据的传输和存储时。
+            </p>
+            <p>
+                JSON的特点：
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp文本形式：JSON是基于文本的，可以被任何编程语言读取和作为数据格式交换。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp易于读写：JSON的格式清晰简洁，人类可读性高。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp键值对：JSON数据是通过键值对来表示的，每个键后面跟着一个值，键值对之间由逗号分隔。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp支持数据类型：JSON支持多种数据类型，包括数字、字符串、布尔值、数组、对象和null。
+            </p>
+            <p>
+                处理JSON
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspJavaScript提供了JSON.parse()和JSON.stringify()两个方法来解析JSON字符串和将JavaScript对象转换为JSON字符串。
+            </p>
+            <p>解析JSON字符串：</p>
+            <p class="text-box-noAlign">
+                const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+            </p>
+            <p>将JavaScript对象转换为JSON字符串：</p>
+            <p class="text-box-noAlign">
+                const myJSON = JSON.stringify({name: "John", age: 31, city: "New York"});
+            </p>
+            <br>
+            <p>
+                <strong>异步JavaScript和AJAX</strong>
+                <br>异步JavaScript指的是在不阻塞主线程执行流程的情况下执行长时间运行的任务（如网络请求、文件操作等）的能力。JavaScript是单线程语言，意味着在同一时间只能执行一个任务。
+                为了解决这个限制，JavaScript提供了几种处理异步操作的机制，包括回调函数、Promise对象以及async/await语法。
+            </p>
+            <p id="AJAX">
+                <strong>AJAX</strong>
+                <br>AJAX（Asynchronous JavaScript And XML）是一种在Web开发中使用的技术，允许Web页面与服务器异步通信，这意味着可以在不重新加载整个页面的情况下请求、接收和发送数据。
+                这种技术极大地提高了用户体验，使得Web应用程序可以快速响应用户的操作。
+            </p>
+            <p>
+                AJAX通过使用XMLHttpRequest对象（或在现代浏览器中使用fetch API）与远程Web服务器进行通信。开发者可以使用这些技术发出HTTP请求，以获取或发送数据。
+                <br>实例：
+            </p>
+            <img src="webpic/AJAX.png">
+
+
+
+
+            <p></p>
+            <strong></strong>
+        </main>
+        <asideL>
+            <p><a href="#js">JavaScript</a></p>
+            <p><a href="#ap">Attributes and Properties</a></p>
+            <p><a href="#JE">JavaScript Engines</a></p>
+            <p><a href="#DOMT">DOM Tree</a></p>
+            <p><a href="#EventListener">EventListener</a></p>
+            <p><a href="#window.onload">window.onload</a></p>
+            <p><a href="#Sync&Async">Sync and Async Scripts</a></p>
+            <p><a href="#Variable">Variable</a></p>
+            <p><a href="#typeof">typeof</a></p>
+            <p><a href="#String">String</a></p>
+            <p><a href="#Array">Array</a></p>
+            <p><a href="#Function">Function</a></p>
+            <p><a href="#Condition and Loop">Condition and Loop</a></p>
+            <p><a href="#Cookie">Cookie</a></p>
+            <p><a href="#OOP">OOP</a></p>
+            <p><a href="#JSON">JSON</a></p>
+            <p><a href="#AJAX">AJAX</a></p>
+            <p><a href="#"></a></p>
+
+        </asideL>
+        <asideR><p></p></asideR>
+        <footer><p></p></footer>
+        <a href="#title" class="button">Go to the top</a>
+    </div>
+</body>
+</html>
