@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Scraping</title>
+    <link rel="stylesheet" href="Test2.css" />
+</head>
+<body>
+    <div class="container">
+        <header><h1 id="title" class="title">Web Scraping</h1></header>
+        <header-link>
+            <a class="link-box" href="index.html">HTTP</a>
+            <a class="link-box" href="HTML.html">HTML</a>
+            <a class="link-box" href="CSS.html">CSS</a>
+            <a class="link-box" href="JavaScript.html">JavaScript</a>
+        </header-link>
+        <main>
+            <p id="WS"><strong>Web Scraping</strong> 是指使用自动化程序（通常是编写的脚本或软件）从互联网上抓取网页，并从中提取数据的过程。这种技术允许用户从网页上自动提取所需的信息，而无需手动访问每个页面。</p>
+            <br>
+            <p>
+                <strong>爬虫(Crawlers)</strong> 是一个 HTTP 客户端，类似于浏览器，但是是自动化的。可以通过编写自己的特定目的的软件或直接使用现有的工具实现。
+                根据使用情况，也被称为“蜘蛛”（spider），蜘蛛主要用于索引内容，通常用于搜索目的。其他的“爬虫”可能对内容有其他用途。
+            </p>
+            <br>
+            <p id="wget"><strong>wget</strong>是一个在命令行中使用的下载工具，它可以从 Web 服务器下载文件。它是一个强大而灵活的工具，可以用于各种下载任务，并且支持多种协议，包括 HTTP、HTTPS 和 FTP。</p>
+            <p> wget 命令的基本语法为：<strong>wget [选项] [URL]</strong></p>
+            <p>其中，<strong>[选项]</strong> 是可选的参数，用于指定下载的方式和设置下载的选项，<strong>[URL]</strong> 是要下载的文件、网页或目录的 URL。</p>
+            <p>
+                以下是常用的 wget 选项：
+                <br><strong>-r</strong>, --recursive: 递归下载，下载指定 URL 的所有链接页面和资源。
+                <br><strong>-l</strong>, --level=DEPTH: 指定递归下载的深度，即链接的层级数。通常配合-r选项使用。
+                <br><strong>-p</strong>, --page-requisites: 下载页面所需的所有资源，包括图片、样式表、JavaScript 文件等。不会递归地下载其他页面的内容，只会下载指定页面及其直接引用的资源。
+                <br><strong>-i</strong>, --input-file=FILE: 用于指定一个包含 URL 列表的文件，wget 将从该文件中逐行读取 URL，并下载这些 URL 指向的资源（相当于使用了-p选项）。这使得可以一次性下载多个 URL 指定的资源。
+                <br><strong>-h</strong>, --span-hosts: 用于控制 wget 是否可以跨越到原始指定下载URL的域之外。这个选项特别适用于需要从多个来源抓取数据的情况，使得 wget 能够访问和下载来自不同域的链接。
+                <br><strong>-D</strong>, --domains: 用于指定 wget 应当从哪些域名下载数据。这个选项非常有用，尤其是在结合 -r（递归下载）和 -H（跨域下载）选项使用时，因为它允许你精确控制哪些域的内容应该被包含在下载过程中。
+                <br><strong>-m</strong>, --mirror: 镜像模式是 wget 的一个强大特性，它自动设置多个选项来使下载尽可能像远程服务器上的内容一样。这包括递归下载所有链接（相当于 -r）、无限递归深度（相当于 -l inf）、保留服务器上的时间戳（使用 -N）、重新下载数据（忽略 -nc）等。
+                <br><strong>-w</strong>, --wait: 允许你设置一个固定的时间间隔（以秒为单位），wget 将在下载完一个文件后，等待指定的时间后再继续下载下一个文件。
+                <br><strong>-O</strong>, --output-document=FILE: 将下载的文件保存为指定的文件名。
+                <br><strong>-N</strong>, --timestamping: 只下载新的文件，如果本地文件的时间戳比远程文件新，则不下载。
+                <br><strong>-nc</strong>, --no-clobber: 不覆盖已存在的文件，如果本地文件已经存在，则不下载。
+                <br><strong>-np</strong>, --no-parent: 不追溯到父目录，只下载指定 URL 下的文件，不下载链接的父目录。
+                <br><strong>-x</strong>, --force-directories: 强制创建目录，即使服务器未创建目录结构。
+                <br><strong>--force-html</strong>: 用于强制将下载的文件视为 HTML 文件。即使服务器未将文件标识为 HTML 类型，wget 也会将其视为 HTML 文件。这在某些情况下可能会有用，例如当服务器未正确设置 MIME 类型时。
+                <br><strong>--spider</strong>: 用于模拟爬虫的行为，即只检查 URL 指向的资源是否存在，而不下载资源。这对于检查链接的有效性或者确认资源是否存在很有用，但并不会实际下载文件。
+                <br><strong>--user-agent="your_custom_user_agent"</strong>: 指定自定义的用户代理字符串（此处为your_custom_user_agent）。
+                <br><br>除了上述选项外，wget 还支持更多的选项，可以通过 man wget 命令在终端中查看 wget 的完整文档和所有选项。
+            </p>
+            <br>
+            <p id="robots.txt">
+                <strong>robots.txt</strong>是网站用来告诉 HTTP 或 FTP 爬虫哪些部分可以被访问的标准。它包含了一系列规则，指定了爬虫可以访问网站的哪些部分。
+                爬虫应该检查文件中的自己的用户代理字符串（通常放置在网站根目录），并遵循这些规则。
+            </p>
+            <p class="text-box-noAlign">
+                User-Agent: foobot
+                <br>Allow: /example/page/
+                <br>Disallow: /example/page/disallowed.gif
+                <br>
+                <br>User-Agent: bazbot
+                <br>Disallow: /example/page.html
+            </p>
+            <p id="Issues">
+                <strong>问题Issues：</strong>
+                <br>robots.txt 文件只是一个指导性文件，爬虫可以选择是否遵守其中的规则，但并不强制执行访问限制。实际上，一些恶意的爬虫可能会忽略这些规则。
+                要实现真正的访问控制和安全保护，需要使用更强大的安全机制，例如身份验证（authentication）。
+                robots.txt 文件还列出了网站的组件和目录结构，这样使得网站内容对于搜索引擎和其他爬虫变得更容易被发现。
+                <br><br>robots.txt 更多是一种“信用体系”，而不是强制执行的规则。良好的爬虫会尊重网站所有者的意愿，并遵守文件中的规则。wget 就是一个良好的爬虫。
+            </p>
+            <br>
+            <p id="Limits"><strong>对爬取的其他限制（Other limits on crawling）</strong></p>
+            <p>
+                你通常有权访问公共网络内容。这并不意味着你可以随意使用它。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp网络上的内容可能受到版权保护。对于一些需要身份验证的内容，例如付费内容或个人信息，未经允许而进行爬取可能被视为违反道德，甚至可能触犯法律。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp对于服务器而言，大量的激进下载可能会给服务器带来负担，因此有些服务器会对频繁下载的客户端进行限制或者列入黑名单。
+                爬虫应该考虑服务器的负载，并尽量以礼貌的方式进行访问，避免给服务器带来过大的压力。
+                即使没有明确要求，爬虫通常也应该在发送请求之间引入一些小的延迟（small delays between requests）。这样做有助于降低对服务器的负荷，同时也显示出对服务器的尊重和礼貌。
+                一些网站也提供了专门设计用于自动访问的 API 端点，这些端点可能会施加不同的速率限制。
+            </p>
+            <br>
+            <p id="Guidelines"><strong>应该遵守的道德准则：</strong></p>
+            <p>
+                始终尊重网站提供的 robots.txt。被拒绝给爬虫的资源可能是出于法律或道德原因而受到保护。
+                <br><br>始终先寻找 API。如果一个网站为你提供了一个 JSON 端点来查询你想要的结构化数据，使用该 API 而不是从为人类消费而设计的网页中抓取相同的数据既更简单也更礼貌。
+                <br><br>非常小心任何在经过身份验证的登录后进行的抓取，例如从登录的社交媒体账户中抓取。思考人们对你正在收集的内容的隐私期望，无论是在法律上还是在道德上。如果你公开发布本来只面向有限受众的内容，你可能会背叛信任，甚至可能面临法律后果。
+                <br><br>通常要注意，能够访问和阅读来自网络的信息并不意味着你有权重新发布它，即使是以修改过的形式。
+            </p>
+            <br>
+            <p id="BeautifulSoup">
+                <strong>BeautifulSoup</strong>是一个用于从 HTML 文件中提取数据的 Python 库。它本身并不是 HTML 解析器，但可以使用多种解析器。
+                提供了一个灵活的接口，可以以编程方式对 HTML 进行导航、搜索和修改。当前版本是 BeautifulSoup 4（bs4）。
+            </p>
+            <p>使用 BeautifulSoup 库来解析 HTML 文件的例子：</p>
+            <p class="text-box-noAlign">
+                #导入 BeautifulSoup 库
+                <br>from bs4 import BeautifulSoup
+                <br>
+                <br>#指定要解析的 HTML 文件的文件名，这里是 "news.html"
+                <br>filename = "news.html"<br>
+                <br>#打开文件并读取其内容，将内容存储在变量 text 中
+                <br>handle = open(filename, 'r')
+                <br>text = handle.read()<br>
+                <br>#使用 BeautifulSoup 的构造函数 BeautifulSoup() 将 HTML 文本解析为 BeautifulSoup 对象 soup。
+                <br>#这样就可以使用 BeautifulSoup 提供的方法来对 HTML 内容进行操作和提取信息了。
+                <br>soup = BeautifulSoup(text)
+            </p>
+            <p>创建和操作 Python 中的字典（dict）的例子：</p>
+            <p class="text-box-noAlign">
+                #创建一个空字典
+                <br>d = {}<br>
+                <br>#使用键值对的方式向字典中添加元素
+                <br>d['this'] = 'that'
+                <br>d['other'] = 'value'<br>
+                <br>#也可以在创建字典时直接指定键值对
+                <br>d = {'a': 1, 'b': 2}
+            </p>
+            <p>创建和操作 Python 中的列表（Lists）的例子：</p>
+            <p class="text-box-noAlign">
+                #创建一个空列表
+                <br>l = ['a']<br>
+                <br>#使用 append() 方法向列表中添加元素
+                <br>l.append('b')
+                <br>l.append('c')
+            </p>
+            <p>其它常见用例：</p>
+            <p class="text-box-noAlign">
+                # 从BeautifulSoup 对象中提取所有的文本内容，移除了 HTML 或 XML 标签
+                <br>soup.get_text()
+                <br>
+                <br># 提取的文本被存储在变量 text 中
+                <br>text = soup.get_text()
+                <br># 打印变量 text 所包含的内容到控制台或屏幕上
+                <br>print(text)
+                <br>
+                <br># 获取 &lttitle&gt 标签内的纯文本内容
+                <br>soup.title.text
+                <br>
+                <br># 查找 &lttitle&gt 标签中的所有子标签（即所有嵌套在 &lttitle&gt 标签内的标签）
+                <br>soup.head.findChildren()
+                <br>
+                <br># 提取 &lthead&gt 部分中第一个 &ltmeta&gt 标签里的 charset 属性（attribute）的值
+                <br>soup.head.meta['charset']
+                <br>
+                <br># 查找所有具有 'container' 类的 &ltdiv&gt 标签并储存在变量containers中
+                <br>containers = soup.find_all('div', class_='container')
+                <br># 打印每个容器的文本
+                <br>for container in containers:
+                <br>&nbsp&nbsp&nbsp&nbspprint(container.text)
+            </p>
+
+
+            <p></p>
+            <strong></strong>
+        </main>
+        <asideL>
+            <p><a href="#WS">Web Scraping</a></p>
+            <p><a href="#wget">wget</a></p>
+            <p><a href="#robots.txt">robots.txt</a></p>
+            <p><a href="#Issues">Issues</a></p>
+            <p><a href="#Limits">Limits</a></p>
+            <p><a href="#Guidelines">Guidelines</a></p>
+            <p><a href="#BeautifulSoup">BeautifulSoup</a></p>
+        </asideL>
+        <asideR><p></p></asideR>
+        <footer><p></p></footer>
+        <a href="#title" class="button">Go to the top</a>
+    </div>
+</body>
+</html>
