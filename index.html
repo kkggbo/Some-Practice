@@ -51,6 +51,14 @@
                 除了传输文档内容之外，HTTP还传输关于通信双方状态的<strong>元数据(metadata)</strong>。
                 这些元数据通过<strong>请求和响应头部(request and response headers)以及状态码(status codes)</strong>来传递。
             </p>
+            <p>
+                <strong>元数据</strong>是关于数据的数据，提供了数据内容的描述性信息。在不同的上下文中，它可以包括文件的创建日期、作者、位置和更改历史等信息。
+                在网络传输，特别是HTTP（超文本传输协议）中，元数据通常表现为头信息，描述了数据的类型（如内容类型）、长度、服务器信息、缓存控制策略等。
+                元数据不包含数据本身的内容，但提供了处理和理解数据所需的关键信息。
+                <br><br>
+                要理解的是，元数据是HTTP协议的重要组成部分。然而，元数据与数据是分开的。
+                一个超文本文档不必通过HTTP协议来传输。这意味着文档的内容（数据）和它传输时的信息（元数据，如头信息）是独立的，而且超文本内容（如HTML文档）可以通过其他方式传输，不仅限于HTTP协议。
+            </p>
 
             <p>
                 <strong>请求和响应头部：</strong>在HTTP通信中，每个请求和响应都包含头部信息，这些头部信息包含了与通信相关的元数据，
@@ -122,9 +130,10 @@
                 <br>POST：向指定资源提交数据进行处理请求（将有效负载数据提交到目标资源）
                 <br>PUT：请求服务器存储一个资源，并用请求的数据替代指定的资源
                 <br>DELETE：请求服务器删除指定资源
-                <br>HEAD：类似于GET请求，但服务器在响应中只返回首部，不返回实体的主体部分
+                <br>HEAD：类似于GET请求，但服务器在响应中只返回头部，不返回实体的主体部分
                 <br>OPTIONS：请求查询服务器支持的HTTP方法
                 <br>TRACE：用于测试服务器的连接，客户端发出TRACE请求，服务器会原封不动地返回这个请求，用于诊断和调试
+                <br>实际上，许多服务器不会实现或会忽略DELETE或PUT请求，而是选择使用POST请求来实现自定义的语义。
             </p>
 
             <p><strong>SP</strong> 表示空格（Space），用于分隔method、request-target和HTTP-version这三个部分。</p>
@@ -136,7 +145,7 @@
                 <br>例：?name=welcome&action=view表示带有参数name和action的查询，其中name的值是welcome，action的值是view。
             </p>
 
-            <p><strong>HTTP-version</strong> 表示HTTP协议的版本号，通常为HTTP/1.0或HTTP/1.1。它指示了客户端使用的HTTP协议版本。</p>
+            <p><strong>HTTP-version</strong> 表示HTTP协议的版本号，通常为HTTP/1.0或HTTP/1.1。它指示了客户端使用的HTTP协议版本。它很少会改变（但它也可以改变）。</p>
             <p><strong>CRLF</strong> 表示回车换行（Carriage Return, Line Feed），用于表示请求行的结束。</p>
 
             <br>
@@ -254,15 +263,21 @@
                 <br>&nbsp&nbsp&nbsp&nbspController.java：这个文件很有趣，在应用程序开发中，模型-视图-控制器（MVC）是用来结构化应用程序的多种模式之一，其中控制器负责重要工作，例如响应HTTP请求。
             </p>
             <br>
-
+            <img src="webpic/Spring Boot framework.png">
             <p>
-                Spring通过注解（annotations）工作，这些特殊的类名以@符号开头。当服务器启动时，Spring会扫描所有文件的注解并设置代码以处理它们。例如：
-                <br>&nbsp&nbsp&nbsp&nbspsrc@SpringBootApplication告诉Spring这是要运行的主文件。
-                <br>&nbsp&nbsp&nbsp&nbspsrc@RestController告诉Spring这个类包含处理HTTP请求的方法。它之所以这样命名，是因为Spring有使实现REST原则特别简单的库。
-                <br>&nbsp&nbsp&nbsp&nbspsrc@AutoWired用于字段，告诉Spring这个字段的设置是Spring在应用程序启动时的责任。
-                <br>&nbsp&nbsp&nbsp&nbspsrc@GetMapping(PATH)告诉Spring这个方法应该被调用来回应提供路径的HTTP GET请求。
+                Spring通过注解（annotations）工作，这些特殊的类名以@符号开头。当服务器启动时，Spring会扫描所有文件的注解并设置代码以处理它们。
+                <br> <br>
                 方法mainPage展示了响应HTTP请求的基本方式：设置任何你需要的头部，在这个案例中是内容类型，并返回一个ResponseEntity。
             </p>
+            <br>
+            <p id="cache"><strong>浏览器缓存</strong></p>
+            <p>
+                如果你在进行网页开发并遇到更新不显示的问题，可能是因为缓存问题。浏览器可能会缓存你之前访问的页面版本，尤其是当服务器发送 Last-modified 头部信息时。
+                如果浏览器检测到你正尝试访问的文件与先前下载的文件时间戳相同，它可能会假设文件未更改，并使用缓存的版本，忽略新请求。
+            </p>
+            <p>此时你可以在开发者工具中启用“禁用缓存”功能并刷新页面。或者通过更改文件名，你迫使浏览器认为它是一个新文件，从而请求并加载新的内容。</p>
+
+
         </main>
         <asideL>
             <p><a href="#HTTP">HTTP</a></p>
@@ -275,6 +290,7 @@
             <p><a href="#Content-Type">Content-Type</a></p>
             <p><a href="#URI">URI</a></p>
             <p><a href="#Java and Spring Boot">Java & Spring Boot</a></p>
+            <p><a href="#cache">Cache</a></p>
         </asideL>
         <asideR><p></p></asideR>
         <footer><p></p></footer>

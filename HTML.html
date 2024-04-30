@@ -18,6 +18,8 @@
         <main>
             <p id="HTML"><strong>HTML（HyperText Markup Language）</strong>是一种用于创建和呈现超文本的标记语言。它被用来描述和组织网页的内容和结构，使得文本能够具有交互性和结构化。</p>
             <br>
+            <img src="webpic/HTML.png">
+            <br>
             <p id="tags">
                 HTML的一些关键要素：
                 <br><strong>标签（Tags）：</strong>HTML文档中的基本单位。标签用于指示文档中的不同部分和组件，并告诉浏览器如何处理这些部分。例如，
@@ -61,6 +63,8 @@
                 <br>&nbsp&nbsp&nbsp&nbsp&lt/body&gt
                 <br>&lt/html&gt
             </p>
+            <p>&lt!DOCTYPE html&gt: 声明文档类型。早期的 HTML（大约 1991-1992 年）文档类型声明类似于链接，规定了 HTML 页面必须遵从的良好规则，能自动检测错误和其他有用的东西。</p>
+            <p>&ltmeta charset="utf-8"&gt: &ltmeta&gt 元素。这个元素代表了不能由其他 HTML 元相关元素表示的元数据，比如 &ltbase&gt、&ltlink&gt、&ltscript&gt、&ltstyle&gt 或 &lttitle&gt。charset 属性将你的文档的字符集设置为 UTF-8，其中包括绝大多数人类书面语言的大多数字符。有了这个设置，页面现在可以处理它可能包含的任何文本内容。没有理由不对它进行设置，它可以帮助避免以后的一些问题。</p>
             <br>
             <p id="ETag"><strong>常用标签（tags）：</strong></p>
             <p>
@@ -72,41 +76,42 @@
                 <br>&ltheader&gt：定义文档的页眉，通常包含网站的标题、标志和导航链接。
                 <br>&ltfooter&gt：定义文档的页脚，通常包含版权信息、联系方式等。
                 <br>&ltmain&gt：定义文档的主要内容区域。
-                <br>&ltnav&gt：定义导航链接的容器。
+                <br>&ltnav&gt(Navigation)：定义导航链接的容器。
                 <br>&ltarticle&gt：定义独立的、可独立分配的内容，如新闻文章、博客帖子等。
                 <br>&ltsection&gt：定义文档的一个区段或部分。
             </p>
             <p>
                 文本标签：
-                <br>&ltp&gt：定义段落。
-                <br>&lth1&gt、&lth2&gt、&lth3&gt、&lth4&gt、&lth5&gt、&lth6&gt：定义标题，按重要性依次递减。
+                <br>&ltp&gt(Paragraph)：定义段落。
+                <br>&lth1&gt、&lth2&gt、&lth3&gt、&lth4&gt、&lth5&gt、&lth6&gt(Heading)：定义标题，按重要性依次递减。
                 <br>&ltspan&gt：定义文本的行内容器，用于设置文本的样式。
-                <br>&ltstrong&gt、&ltem&gt：分别定义强调和重点文本。
-                <br>&lta&gt：定义超链接。
-                <br>&ltbr&gt：定义换行。
+                <br>&ltdiv&gt(Division)：对文档中的内容进行结构化分组的块级元素。与&ltspan&gt相比，&ltdiv&gt默认会开始一个新的行，因为它是一个块级元素，而&ltspan&gt是一个内联元素。
+                <br>&ltstrong&gt、&ltem&gt(Emphasis)：分别定义强调和重点文本。
+                <br>&lta&gt(Anchor)：锚点元素，用于定义超链接。
+                <br>&ltbr&gt(Break)：定义换行。
             </p>
             <p>
                 列表标签：
-                <br>&ltul&gt：定义无序列表。
-                <br>&ltol&gt：定义有序列表。
-                <br>&ltli&gt：定义列表项。
+                <br>&ltul&gt(Unordered List)：定义无序列表。
+                <br>&ltol&gt(Ordered List)：定义有序列表。
+                <br>&ltli&gt(List Item)：定义列表项。
             </p>
             <p>
                 图像、多媒体标签：
-                <br>&ltimg&gt：定义图像。
+                <br>&ltimg&gt(Image)：定义图像。
                 <br>&ltvideo&gt：定义视频。
                 <br>&ltaudio&gt：定义音频。
             </p>
             <p>
                 表格标签：
                 <br>&lttable&gt：定义表格。
-                <br>&lttr&gt：定义表格行。
-                <br>&lttd&gt：定义表格数据单元格。
+                <br>&lttr&gt(Table Row)：定义表格行。
+                <br>&lttd&gt(Table Data Cell)：定义表格数据单元格。
             </p>
             <br>
             <p id="EAttribute"><strong>常见的属性（attributes）：</strong></p>
             <p>
-                <br>id：为元素指定唯一的标识符，用于在 CSS 和 JavaScript 中引用该元素。
+                id：为元素指定唯一的标识符，用于在 CSS 和 JavaScript 中引用该元素。
                 <br>class：为元素指定一个或多个类名，用于定义元素的样式或者在 JavaScript 中选择该元素。
                 <br>src：指定嵌入的资源的 URL，如图像、音频、视频等。
                 <br>href：指定链接的目标 URL，用于创建超链接。
@@ -121,6 +126,44 @@
                 <br>checked：用于指定复选框或单选按钮的默认选中状态。
                 <br>disabled：禁用元素，使其不可编辑或不可交互。
             </p>
+            <br>
+            <p id="input"><strong>常见的输入（input）类型：</strong></p>
+            <ul>
+                <li>E-mail地址字段：将 type 属性设置为 email （type="email"）就可以使用这种控件。用户需要输入一个合法的电子邮件地址，任何其他输入都会使得浏览器在表单提交时显示错误信息。</li>
+                <li>查询字段（Search fields）；旨在用于在页面和应用程序上创建搜索框。将 type 属性设置为 search 就可以使用这种控件。</li>
+                <li>电话号码字段：在 type 属性中使用 tel 值，即可创建一个专门用于输入电话号码的文本域。</li>
+                <li>URL 字段：在 type 属性值中使用 url，即可创建一个用于输入网址的文本字段。</li>
+                <li>数字字段：用于输入数字的控件可以由 type 为 number 的 &ltinput&gt 元素创建。这个控件外观与文本域类似，但只允许浮点数输入，并通常以旋转器（spinner）的形式提供按钮来增加和减少控件的值。在有动态键盘的设备上，一般会显示数字键盘。</li>
+                <li>滑块控件：在 &ltinput&gt 元素中使用 range 作为属性 type 的值，就可以创建一个滑块，滑块可以通过鼠标、触摸，或用键盘的方向键移动。</li>
+                <li>日期和时间选择器：日期和时间控件可由 &ltinput&gt 元素和一个合适的 type 属性值来创建，该值取决于要收集的类型（日期、时间、还是以上全部）。</li>
+                <li>颜色选择器控件：用于输入颜色的控件可以由 type 为 color 的 &ltinput&gt 元素创建</li>
+            </ul>
+            <p>
+                <strong>客户端验证（Client-side validation）：</strong>正如你在上面看到的，email 与其他较新的 input 类型一样，提供了内置的客户端错误验证，在数据被发送到服务器之前由浏览器执行。
+                它是引导用户准确填写表格的一个有用的辅助工具，可以节省时间：可以立即知道你的数据是否正确，而不需要等待服务器返回结果。
+                <br>
+                但它<strong>不应该被认为是一种详尽的安全措施！</strong>你的应用程序始终应该在服务器端和客户端对任何表单提交的数据进行安全检查，因为客户端验证太容易被关闭了，所以恶意用户仍然可以很容易地将坏数据发送到你的服务器。
+            </p>
+            <br>
+            <p id="elementType"><strong>块级元素(Block-level elements)和内联元素(inline elements)</strong></p>
+            <img src="webpic/K1.png">
+            <img src="webpic/K2.png">
+            <br>
+            <p id="Templating"><strong>模板化（Templating）</strong></p>
+            <p>
+                本周workshop的应用程序是一个包含学生、单元和成绩的极简大学数据库。模型文件夹中的数据库接口与学生类和单元类一起构成了数据模型--你可以搜索数据库中的所有学生或所有单元。当然，在真正的数据库中，您还可以通过 ID 搜索单个学生。主页面将以 HTML 文件的形式从 src/main/resources/web 的类路径中提供。
+                <br>
+                <br>文件 Templates.java 设置了 thymeleaf 模板引擎。@Component 注解告诉 Spring 来管理这个类；其他需要模板的类可以通过用 @Autowired 声明一个正确类的字段来请求模板，就像你在 Controller.java 中看到的那样。
+                <img src="webpic/Templates.png">
+                <img src="webpic/Templates2.png">
+                <img src="webpic/Templates3.png">
+                <img src="webpic/Templates4.png">
+            </p>
+
+
+
+            <p></p>
+            <strong></strong>
         </main>
         <asideL>
             <p><a href="#HTML">HTML</a></p>
@@ -128,6 +171,9 @@
             <p><a href="#Attributes">Attributes</a></p>
             <p><a href="#ETag">Tag Examples</a></p>
             <p><a href="#EAttribute">Atribute Examples</a></p>
+            <p><a href="#input">Input Examples</a></p>
+            <p><a href="#elementType">Element Type</a></p>
+            <p><a href="#Templating">Templating</a></p>
         </asideL>
         <asideR><p></p></asideR>
         <footer><p></p></footer>

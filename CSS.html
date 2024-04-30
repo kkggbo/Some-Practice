@@ -32,7 +32,7 @@
                 <br><br>若要同时选择多个标签，可使用逗号分隔。这种选择器可以同时选择多种不同类型的元素，并将同样的样式应用于它们。
                 <br><br>CSS样式规则p#uniquebox选择器用于选择具有ID属性值为uniquebox的段落元素（&ltp&gt），即只选定&ltp id="uniquebox"&gt 中的文本。对于具有指定类名的元素，可以使用p.uniquebox选择器
                 <br><br>选择器也允许根据元素的属性值来选择元素，例如p[name=tim]，表示选择所有具有name属性且属性值为'tim'的段落元素，div[border=none]表示选择所有具有border属性且属性值为'none'的div元素。
-                <br><br>选择器中，p[class='important']与.p.important是等价的，均表示选择所有具有class属性且属性值为'important'的段落元素。
+                <br><br>选择器中，p[class='important']与 p.important是等价的，均表示选择所有具有class属性且属性值为'important'的段落元素。
                 <br><br>还一种特殊的属性选择器，即部分匹配属性选择器。例如，img[title~='flower']表示选择所有具有title属性且属性值包含字符串'flower'的图片元素。这种选择器允许根据属性值的部分内容来选择元素，非常灵活。
             </p>
             <p>
@@ -58,7 +58,7 @@
                 <br>&nbsp&nbsp&nbsp&nbsp&ltbody&gt
                 <br>&nbsp&nbsp&nbsp&nbsp...
             </p>
-            <p>或者，CSS也可以直接放在HTML文件中，使用&ltstyle&gt标签来定义样式。这种方法通常适用于简单的样式或者一次性的样式定义，但不太适合大型项目或者需要复用的样式。</p>
+            <p>或者，CSS也可以直接放在HTML文件中，使用&ltstyle&gt标签来定义样式。或者使用内联样式，包含在元素的style属性中。这两种方法通常适用于简单的样式或者一次性的样式定义，但不太适合大型项目或者需要复用的样式。</p>
             <br>
             <p><strong>元素之间的位置关系:</strong></p>
             <p class="text-box-noAlign">
@@ -82,8 +82,8 @@
             <p id="Selectors: Positional"><strong>位置选择器（Selectors: Positional）：</strong></p>
             <p><strong>this (空格) that：</strong>选择所有的that元素，其是this元素的后代元素。这意味着选择所有嵌套在this元素内部的that元素，不管它们的层级关系如何。</p>
             <p><strong>this > that：</strong>选择所有的that元素，其是this元素的直接子元素。这意味着选择所有直接包含在this元素内部的that元素，而不考虑它们的孙子元素或更深层次的后代元素。</p>
-            <p><strong>this ~ that：</strong>选择所有在this之后的同级that元素。如果this和that有共同的父元素，并且that在this之后，那么that就会被选择。</p>
-            <p><strong>this + that：</strong>选择紧接在this元素之后的那个that元素。如果that是this的下一个同级元素，那么that就会被选择。</p>
+            <p><strong>this ~ that：</strong>选择所有在this元素之后的所有that元素。如果this和that有共同的父元素，并且this在that之后，那么所有that都会被选择。</p>
+            <p><strong>this + that：</strong>选择紧接在this元素之后的一个that元素。如果that是this的下一个同级元素，那么that就会被选择。</p>
             <br>
             <p id="Color Value">
                 <strong>CSS中的颜色值（Color Value）:</strong>
@@ -125,9 +125,31 @@
                 <br>&nbsp&nbsp&nbsp&nbsprem（根em）：相对于根元素（通常是&lthtml&gt）的字体尺寸。在整个文档中，1rem等于根元素的字体大小。
                 <br>&nbsp&nbsp&nbsp&nbsp%（百分比）：相对于父元素的对应尺寸的百分比。
             </p>
+            <br>
+            <p id="grid"><strong>网格布局（grid layout）</strong></p>
+            <p>网格是由一系列水平及垂直的线构成的一种布局模式。根据网格，我们能够将设计元素进行排列，帮助我们设计一系列具有固定位置以及宽度的元素的页面，使我们的网站页面更加统一。</p>
+            <p> 一个网格通常具有许多的列（column）与行（row），以及行与行、列与列之间的间隙，这个间隙一般被称为沟槽（gutter）。</p>
+            <img src="webpic/grid.png">
+            <p><strong>定义一个网格</strong></p>
+            <p>首先，我们通过把容器（通常是div）的 display 属性设置为 grid ,来定义一个网格。但网页并不会马上发生变化。因为 display: grid 的声明只创建了一个只有一列的网格，所以子项还是会像正常布局流那样，自上而下、一个接一个的排布。</p>
+            <p>为了让我们的容器看起来更像一个网格，我们要给刚定义的网格加一些列。那就让我们加三个宽度为200px的列。当然，这里可以用任何长度单位，包括百分比。</p>
+            <img src="webpic/grid2.png">
+            <p>除了长度和百分比，我们也可以用 fr 这个单位来灵活地定义网格的行与列的大小。这个单位代表网格容器中可用空间的一份，fr 单位按比例划分了可用空间，每一列的宽度可以会随着可用空间变小而变小。</p>
+            <img src="webpic/grid3.png">
+            <p><strong>网格间隙（gap）</strong></p>
+            <img src="webpic/grid4.png">
+            <p>如果你想要在网格外围添加间隙，可以给容器添加margin（或padding）。</p>
+            <p><strong>重复构建轨道组</strong></p>
+            <img src="webpic/grid5.png">
+            <p><strong>放置规则（placement rules）</strong></p>
+            <img src="webpic/grid6.png">
+            <img src="webpic/grid7.png">
+            <p>span N 让子元素跨越N个单元格的宽度/高度。</p>
+
 
             <strong></strong>
             <p></p>
+            <p><strong></strong></p>
         </main>
         <asideL>
             <p><a href="#CSS">CSS</a></p>
@@ -137,6 +159,7 @@
             <p><a href="#Color Value">Color Value</a></p>
             <p><a href="#Layout">Layout</a></p>
             <p><a href="#Unit">Unit</a></p>
+            <p><a href="#grid">Grid</a></p>
         </asideL>
         <asideR><p></p></asideR>
         <footer><p></p></footer>

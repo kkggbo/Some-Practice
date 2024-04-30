@@ -23,6 +23,8 @@
                 通过Node.js（一个运行于服务器端的JavaScript运行时环境），JavaScript也可以用于服务器端编程。
                 这意味着开发者可以使用同一种语言来编写前端和后端代码，这种“全栈”开发简化了学习曲线，并允许更快速的开发周期和更高的生产效率。
             </p>
+            <p>JavaScript是一种脚本语言，用于HTML文档中以增强文档功能或使文档具有动态性。通过JavaScript，我们可以在网页上实现复杂的功能，具体包括：动态更新网页内容、控制页面的多媒体和图像内容、以及控制和更改文本。这使得JavaScript成为开发交互式和动态网页的重要工具。</p>
+            <img src="webpic/relationship.png">
             <br>
             <p id="ap">
                 <strong>属性（Attributes and Properties）：</strong>
@@ -90,11 +92,11 @@
             <p>
                 JavaScript引擎（JavaScript Engine）:
                 <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp职责：JavaScript引擎负责执行页面上的JavaScript代码。这包括处理事件监听、修改DOM、发送网络请求等操作，通过这些操作可以实现页面的动态交互效果。
-                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp解释执行 vs JIT编译：虽然JavaScript通常被认为是一种解释型语言（意味着代码在执行时逐行解释运行），现代浏览器的JavaScript引擎通常使用Just-In-Time (JIT) 编译技术来提高执行效率。JIT编译器会在JavaScript代码执行时将其编译成机器码，这样可以大幅提升运行速度。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspJavaScript通常被认为是一种解释型(interpreted)语言，不需要预先编译(compiled)成机器语言就可以执行。然而，在现代浏览器中，通过使用称为即时编译（JIT）的技术，JavaScript代码在执行前会被编译成可执行的字节码。这种技术提高了JavaScript的执行效率，使其在运行时接近编译型语言的性能。
             </p>
             <p>
                 JIT编译(Just-in-time compiler)技术:
-                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp原理：JIT编译技术结合了解释器和传统编译器的优点。它不是在代码执行前将全部代码编译成机器码，也不是逐行解释执行，而是将代码编译成字节码（一种介于源码和机器码之间的代码），在执行时根据需要将热点代码（即经常执行的代码）编译成机器码。
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp原理：JIT编译技术结合了解释器和传统编译器的优点。它不是在代码执行前将全部代码编译成机器码，也不是逐行解释执行，而是将代码编译成字节码（bytecode, 一种介于源码和机器码之间的代码），在执行时根据需要将热点代码（即经常执行的代码）编译成机器码。
                 <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp优势：通过JIT编译，可以实时优化代码执行，提高执行效率，尤其是在处理复杂和计算密集的JavaScript应用时表现明显。
             </p>
             <br>
@@ -120,7 +122,30 @@
                 <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp访问和修改：DOM提供了许多方法和属性，使得开发者可以方便地访问和修改DOM树的节点。例如，document.getElementById()可以获取特定ID的元素，element.innerHTML可以修改元素内的HTML内容。
             </p>
             <img src="webpic/DOMtree.png">
-            <br><br>
+            <br>
+            <p>常用的DOM方法和属性：</p>
+            <ul>
+                <li>getElementById() - 获取具有特定ID的元素。</li>
+                <li>getElementsByTagName() - 获取包含特定标签名的所有元素。</li>
+                <li>getElementsByClassName() - 获取所有具有特定类名的元素。</li>
+                <li>querySelector() - 返回匹配特定选择器的第一个元素。</li>
+                <li>querySelectorAll() - 返回匹配特定选择器的所有元素的集合。</li>
+                <li>appendChild() - 向节点添加新的子节点。</li>
+                <li>removeChild() - 从节点中移除子节点。</li>
+                <li>replaceChild() - 替换节点中的子节点。</li>
+                <li>createElement() - 根据给定的标签名创建一个新的元素节点。</li>
+                <li>setAttribute() - 为元素添加一个新属性或改变现有属性的值。</li>
+                <li>getAttribute() - 从元素中检索指定属性的值。</li>
+                <li>addEventListener() - 为元素注册一个特定事件类型的事件处理程序。</li>
+                <li>scrollTo() - 将窗口滚动到文档中的特定坐标。</li>
+                <li>onload - 当整个页面及其依赖资源（如样式表和图片）完全加载完成时触发的事件。</li>
+                <li>style - 访问元素的内联样式，以获取或设置CSS属性。</li>
+                <li>innerHTML - 获取或设置元素内的HTML内容。</li>
+                <li>textContent - 获取或设置元素内的文本内容。</li>
+            </ul>
+            <p>使用JS操作DOM的实例：</p>
+            <img src="webpic/DOMmanipulation.png">
+            <br>
             <p id="EventListener">
                 <strong>事件监听器（EventListener）：</strong>
                 <br>JavaScript HTML DOM中的事件监听器（EventListener）是一种机制，允许你监听在文档或文档中的元素上发生的特定类型的事件（如点击、键盘按键、鼠标移动等），并定义当这些事件发生时应该执行的动作（即事件处理函数）。
@@ -215,7 +240,7 @@
             <p>
                 在JavaScript中，字符串是存储文本信息的数据类型，可以使用单引号(')、双引号(")或反引号(```)来声明字符串。这些方式在大多数情况下是等效的。
                 单引号和双引号在JavaScript中的行为基本相同，主要的区别在于如何在字符串中表示引号。如果字符串内部需要包含一个单引号，可以使用双引号来声明字符串，反之亦然。
-                如果要在字符串内部使用和字符串相同的引号类型，那么需要使用反斜线(\)来转义。在下面的例子中，\'用来在双引号字符串内包含一个单引号，不会被解释为字符串的结束。
+                如果要在字符串内部使用和字符串相同的引号类型，那么需要使用反斜线(\)（escap point 转义字符）来转义。在下面的例子中，\'用来在双引号字符串内包含一个单引号，不会被解释为字符串的结束。
             </p>
             <p class="text-box-noAlign">
                 let example = "I\'m feeling lucky";
@@ -339,6 +364,10 @@
                 <br>• 对象可以相互交互。
                 <br>• 我们可以使用API方法来访问和与对象通信。
             </p>
+            <p>
+                <strong>JavaScript对象:</strong>
+                <br>JavaScript对象是JavaScript语言的核心组成部分，用于存储键值对的集合。JavaScript对象的键（属性名）可以是字符串或符号，值可以是任意数据类型，包括其他对象、数组、函数和原始数据类型。JavaScript对象支持添加、修改、删除属性，和包含可以执行的方法。
+            </p>
             <br>
             <p id="JSON">
                 <strong>JSON</strong>
@@ -353,6 +382,17 @@
                 <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp支持数据类型：JSON支持多种数据类型，包括数字、字符串、布尔值、数组、对象和null。
             </p>
             <p>
+                JSON中，不同类型的数据有不同的表示方式：
+            </p>
+            <ul>
+                <li> 字符串：必须被双引号包围。例如："Hello World"</li>
+                <li>数字：直接写出数字，不需要引号。例如：100 或 3.14</li>
+                <li>布尔值：表示为 true 或 false，不需要引号。</li>
+                <li>数组：用方括号表示，元素之间用逗号分隔。例如：[1, "two", true]</li>
+                <li>对象：用花括号表示，属性由键值对组成，键（即属性名）需要被双引号包围，键值对之间用逗号分隔。例如：{"name": "Alice", "age": 25}</li>
+                <li> null：表示为 null，用来表示无值。</li>
+            </ul>
+            <p>
                 处理JSON
                 <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspJavaScript提供了JSON.parse()和JSON.stringify()两个方法来解析JSON字符串和将JavaScript对象转换为JSON字符串。
             </p>
@@ -365,6 +405,13 @@
                 const myJSON = JSON.stringify({name: "John", age: 31, city: "New York"});
             </p>
             <br>
+            <p>JSON对象与JS对象的区别：</p>
+            <ol>
+                <li>数据格式：JSON（JavaScript Object Notation）是一种数据交换格式，其语法源自JavaScript，但JSON是纯文本，只用来表示数据。JavaScript对象是JavaScript语言的一部分，可以包含方法和执行代码。</li>
+                <li>可用数据类型：JSON仅支持字符串、数值、数组、布尔值和null类型。而JavaScript对象可以包含更复杂的数据类型，如函数、日期等。</li>
+                <li>属性名：在JSON中，所有属性名必须用双引号包围，而在JavaScript对象中，属性名可以不使用引号，除非它们包含特殊字符或与JavaScript关键字冲突。</li>
+                <li>解析：JSON数据需要被解析成JavaScript对象才能在JavaScript中使用。常用的方法是使用JSON.parse()函数。反之，JavaScript对象可以使用JSON.stringify()方法转换为JSON格式的字符串。</li>
+            </ol>
             <p>
                 <strong>异步JavaScript和AJAX</strong>
                 <br>异步JavaScript指的是在不阻塞主线程执行流程的情况下执行长时间运行的任务（如网络请求、文件操作等）的能力。JavaScript是单线程语言，意味着在同一时间只能执行一个任务。
